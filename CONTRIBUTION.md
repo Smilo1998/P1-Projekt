@@ -34,8 +34,13 @@ Når du laver commits, brug følgende format:
 
 1. **Opret en ny branch** for dit arbejde:
    - Branch navn: `navn-funktion`, f.eks. `jens-algoritme`.
+  
+2. **Lav din ændringer og test lokalt
+   - Foretag dine ændringer og sørg for at teste, at alt fungere korrekt inden du laver en Pull Request
+   - Hvis der er test i projektet skal du sikre at de alle passerer uden fejl
+  
+4. **
    
-
 ## Andre Retningslinjer
 Opret issues, hvis du opdager fejl eller mangler funktioner, så vi kan holde styr på projektet.
 Husk at opdatere dokumentationen, hvis dine ændringer påvirker brugerens oplevelse eller installationsprocessen.

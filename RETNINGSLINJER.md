@@ -1,7 +1,3 @@
-# Contributing Guidelines for Education Recommendation Program
-
-Tak, fordi du ønsker at bidrage til vores projekt! Herunder finder du retningslinjer for at sikre, at vores samarbejde er så effektivt som muligt.
-
 ## Kodestandarder
 
 For at holde koden ensartet og let at læse, følg disse retningslinjer:

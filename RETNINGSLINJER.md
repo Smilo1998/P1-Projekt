@@ -40,6 +40,7 @@ For at holde koden ensartet og let at læse, følg disse retningslinjer:
 ## Andre Retningslinjer
 **Fejl i programmet** 
 - Opret issues, hvis du opdager fejl eller mangler funktioner, så vi kan holde styr på projektet.
+  
 **Test af programmet**
 - Når man har lavet en ændring skal man teste at programmet stadigvæk fungerer inden man pusher til GitHub
 

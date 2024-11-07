@@ -10,3 +10,4 @@ int main(void){
 
 // Dette er en aendring 
 // Hello
+//nyfunktion

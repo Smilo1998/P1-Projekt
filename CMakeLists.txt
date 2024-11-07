@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # Navn på projektet
-project(MyProject)
+project(P1)
 
 # Angiv C-standarden
 set(CMAKE_C_STANDARD 11)

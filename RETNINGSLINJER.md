@@ -3,7 +3,7 @@
 For at holde koden ensartet og let at læse, følg disse retningslinjer:
 
 - **Indrykning**: Brug tabulator til indrykninger
-- **Variabler**: Brug beskrivende og forståelige navne på engelsk
+- **Variabler**: Brug beskrivende, konkrete og forståelige navne på engelsk
 - **Kommentarer**: Kommentér koden, hvor det er nødvendigt, så andre kan forstå, hvad koden gør.
 - **Funktioner**: Hold funktionerne korte og fokuserede på en enkelt opgave. Det gør koden lettere at teste og vedligeholde.
 - **Navne**: Variabler skrives med underscore imellem og med små bogstaver, funktioner skrives i camelCase, symbolske konstanter i ALL-CAPS

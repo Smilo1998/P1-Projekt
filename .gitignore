@@ -1,3 +1,12 @@
+# CMAKE IGNORE
+# Ignorer build-mappen
+/build/
+# Ignorer midlertidige CMake-filer
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
 # Prerequisites
 *.d
 

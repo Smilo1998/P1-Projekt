@@ -1,1 +1,1 @@
-
+//her laves vores struct

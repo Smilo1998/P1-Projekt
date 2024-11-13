@@ -6,12 +6,12 @@
 #define SUBJECT_NAME
 
 // Struct til elevprofiler
-typedef struct elevprofil{
+typedef struct student_profile{
     char name[NAME_LENGTH + 1];
     double gpa;
     char school_type;
-    char yndlingsfag[SUBJECT_NAME + 1];
-} elevprofil;
+    char favorite_subject[SUBJECT_NAME + 1];
+} student_profile;
 
 // Tilfoej dette: #include "header.h" i alle filer.
 

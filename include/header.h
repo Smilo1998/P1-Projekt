@@ -1,9 +1,15 @@
 #ifndef HEADER_H
 #define HEADER_H
 
+// Libraries
+#include <stdio.h>
+#include <stdlib.h>
+
 // Symbolske konstanter 
 #define NAME_LENGTH 30
 #define SUBJECT_NAME 40
+
+
 
 // Struct til elevprofiler
 typedef struct student_profile{

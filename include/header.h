@@ -1,8 +1,11 @@
 #ifndef HEADER_H
 #define HEADER_H
 
+// Symbolske konstanter 
 #define NAME_LENGTH 30
 #define SUBJECT_NAME
+
+// Struct til elevprofiler
 typedef struct elevprofil{
     char name[NAME_LENGTH + 1];
     double gpa;

@@ -7,7 +7,7 @@
 
 // Symbolske konstanter 
 #define NAME_LENGTH 30
-#define SUBJECT_NAME
+#define SUBJECT_NAME 40
 
 
 

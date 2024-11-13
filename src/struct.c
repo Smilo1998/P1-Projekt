@@ -1,8 +1,8 @@
 #include "../include/header.h"
 
 void getStruct(){
-    student_profile adam = {"Adam",7.45, "STX", "Samfundsfag"};
-    student_profile mathilde = {"Mathilde", 11.11, "HTX", "Matematik"};
-    student_profile oliver = {"Oliver", 5.46, "HHX", "Virksomhedsoekonomi"};
-
+    student_profile student_array[MAX_DATA];
+    student_array[0] = {7.45, "Samfundsfag", "Statskundskab"};
+    student_array[1] = {11.11, "Matematik", "Forsikringsmatematik"};
+    student_array[2] = {5.46, "Virksomhedsoekonomi", "Erhvervsoekonomi"};
 }

@@ -8,15 +8,15 @@
 // Symbolske konstanter 
 #define NAME_LENGTH 30
 #define SUBJECT_NAME 40
+#define MAX_DATA 100
 
 
 
 // Struct til elevprofiler
 typedef struct student_profile{
-    char name[NAME_LENGTH + 1];
     double gpa;
-    char school_type;
     char favorite_subject[SUBJECT_NAME + 1];
+    char education_choice[SUBJECT_NAME + 1]
 } student_profile;
 
 // Tilfoej dette: #include "../include/header.h" i alle filer.

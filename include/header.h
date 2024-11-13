@@ -19,7 +19,7 @@ typedef struct student_profile{
     char favorite_subject[SUBJECT_NAME + 1];
 } student_profile;
 
-// Tilfoej dette: #include "header.h" i alle filer.
+// Tilfoej dette: #include "../include/header.h" i alle filer.
 
 //Her kan indsaettes konstante definitioner som f.eks. #DEFINE PI 3.14...
 

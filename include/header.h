@@ -3,7 +3,7 @@
 
 // Symbolske konstanter 
 #define NAME_LENGTH 30
-#define SUBJECT_NAME
+#define SUBJECT_NAME 40
 
 // Struct til elevprofiler
 typedef struct student_profile{

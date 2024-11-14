@@ -1,21 +1,16 @@
 #include <header.h>  
 
-// Dette er c filen til hvordan input skal koere i programmet
+// Funktion som tager input fra bruger og gemmer gpa og favorite subject i et struct student_profile
+void inputData() {
+    student_profile addStudent(){
+        student_profile user_profile;
 
-void inputData()
-{
+        printf("Enter your grade average: ");
+        scanf("%lf", &user_profile.gpa);
 
-student_profile addStudent()
-{
-    student_profile prof;
+        printf("Enter your favorite subject: ");
+        scanf("%s", &user_profile.favorite_subject); 
 
-    printf("Enter your grade average: ");
-    scanf("%lf", &prof->gpa);
-
-    printf("Enter your favorite subject: ");
-    scanf("%s", &prof->favorite_subject); 
-
-    return prof;
-
-} 
+        return user_profile;
+    }    
 }

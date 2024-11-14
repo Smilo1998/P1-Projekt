@@ -26,8 +26,11 @@ typedef struct student_profile{
 //Her indsaettes prototyper af ALLE funktioner der laves i seperate dokumenter.
 // - Det er ikke noedvendigt at indsaette prototyperne i en bestemt raekkefoelge. Men organiser dem saa man kan finde rundt i dem.
 
-// Funktioner fra Struct.c
+// Prototyper til funktioner fra Struct.c
 void getStruct();
+
+// Prototyper til funktioner fra Input.c
+void inputData();
 
 
 

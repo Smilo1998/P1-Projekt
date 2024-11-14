@@ -5,14 +5,17 @@
 void inputData()
 {
 
-void addStudent(struct student_profile *prof)
+student_profile addStudent()
 {
-    
+    student_profile prof;
+
     printf("Enter your grade average: ");
     scanf("%lf", &prof->gpa);
 
     printf("Enter your favorite subject: ");
     scanf("%s", &prof->favorite_subject); 
+
+    return prof;
 
 } 
 }

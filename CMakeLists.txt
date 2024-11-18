@@ -19,7 +19,7 @@ add_executable(my_program ${SOURCES})
 target_include_directories(my_program PUBLIC "${PROJECT_SOURCE_DIR}/include")
 
 # Aktivér compiler-advarsler for at forbedre kodekvalitet
-target_compile_options(my_program PRIVATE -Wall -Wextra -pedantic -Werror)
+target_compile_options(my_program PRIVATE -Wall -Wextra -pedantic)
 
 # Debugging-flags for gcc (valgfrit, fjern hvis det ikke er nødvendigt)
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")

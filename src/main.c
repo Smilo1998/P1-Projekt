@@ -2,7 +2,6 @@
 #include "../include/header.h"
 
 int main(void){
-    printf("Test\n\n");
     student_profile profiles [NUM_OF_STUDENTS];
 
     student_profile user = addStudent();
@@ -12,6 +11,9 @@ int main(void){
         printf("%d ", user.fag_array[i]);
     }
     printf("\n");
+
+    printf("User favorite subject: %d", user.favorite_subject);
+    
     return 0;
 }
 

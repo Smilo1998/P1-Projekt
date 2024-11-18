@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 
 // Symbolske konstanter 
 #define NAME_LENGTH 30
@@ -32,7 +33,7 @@ typedef enum{
 typedef struct student_profile{
     double gpa;
     int fag_array[10];
-    char favorite_subject[SUBJECT_NAME + 1];
+    int favorite_subject;
     char education_choice[SUBJECT_NAME + 1];
 } student_profile;
 
@@ -50,6 +51,7 @@ void getStudentProfiles(student_profile profiles[]);
 void inputData(void);
 void subjectInput(student_profile *user_profile);
 student_profile addStudent(void);
+int favoriteSubjectDecider(char* user_subject);
 
 //Main funktion
 int main(void);

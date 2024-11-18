@@ -47,9 +47,9 @@ typedef struct student_profile{
 void getStudentProfiles(student_profile profiles[]);
 
 // Prototyper til funktioner fra Input.c
-void inputData();
+void inputData(void);
 void subjectInput(student_profile *user_profile);
-student_profile addStudent();
+student_profile addStudent(void);
 
 //Main funktion
 int main(void);

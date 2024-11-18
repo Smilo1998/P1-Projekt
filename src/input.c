@@ -1,7 +1,7 @@
 #include "../include/header.h" 
 
 // Funktion som tager input fra bruger og gemmer gpa og fag-boolean værdi i et struct student_profile
-student_profile addStudent(){
+student_profile addStudent(void){
     student_profile user_profile;
 
     printf("Enter your grade average: ");
@@ -13,7 +13,7 @@ student_profile addStudent(){
 
 //Spørger efter hvert fag og svaret modtages i 1 eller 0 for at gøre det nemmere i fremtiden. kan altid ændres.
 void subjectInput(student_profile *user_profile){
-    int current_subject, i;
+    int i;
     char* subjects_print[10];
 
     subjects_print[0] = "Matematik";

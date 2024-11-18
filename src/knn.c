@@ -1,5 +1,5 @@
-#include "../include/header.h"
-
+//#include "../include/header.h"
+/*
 // Struct eksempel.
 struct Point{
     int x, y;
@@ -7,7 +7,7 @@ struct Point{
 }
 
 //Beregner Euclidean distance imellem to punkter.
-double euclidean_distance(const Point& p1, const Point& p2){
+double euclidean_distance(const int Point p1, const Point& p2){
     return sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2));
 }
 
@@ -15,7 +15,7 @@ double euclidean_distance(const Point& p1, const Point& p2){
 bool knn_class(){
 
 }
-
+*/
 
 
 // Sorter elever 

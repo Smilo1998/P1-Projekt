@@ -28,7 +28,7 @@ void getStudentProfiles(student_profile profiles[]){
         .education_choice = "Statskundskab"
     };
     profiles[2] = (student_profile)
-     {
+    {
         .gpa = 7.87,
         .fag_array = {1, 0, 0, 0, 1, 1, 0, 0, 1, 1},
         .favorite_subject = AFSAETNING,

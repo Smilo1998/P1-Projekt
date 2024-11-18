@@ -48,8 +48,11 @@ void getStudentProfiles(student_profile profiles[]);
 
 // Prototyper til funktioner fra Input.c
 void inputData();
-int subjectInput();
+void subjectInput();
 student_profile addStudent();
+
+//Main funktion
+int main(void);
 
 
 

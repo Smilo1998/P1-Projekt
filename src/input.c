@@ -30,7 +30,7 @@ void subjectInput(student_profile user_profile){
     for(i = 0; i < 10; i++){
         printf("Type 1 if you completed following subjects, 0 if you have not completed the subject.\n");
         printf("%s: ", subjects_print[i]);
-        scanf("%d", user_profile.fag_array[i]);
+        scanf("%d", user_profile->fag_array[i]);
     }
 }
 

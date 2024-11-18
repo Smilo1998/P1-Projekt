@@ -6,13 +6,13 @@ student_profile addStudent(){
 
     printf("Enter your grade average: ");
     scanf(" %lf", &user_profile.gpa);
-    subjectInput(user_profile);
+    subjectInput(&user_profile);
 
     return user_profile;
 }  
 
 //Spørger efter hvert fag og svaret modtages i 1 eller 0 for at gøre det nemmere i fremtiden. kan altid ændres.
-void subjectInput(student_profile user_profile){
+void subjectInput(student_profile *user_profile){
     int current_subject, i;
     char* subjects_print[10];
 

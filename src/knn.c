@@ -1,30 +1,38 @@
 #include "../include/header.h"
 
 // Funktion der beregner Manhattan Distance
-double manhattanDistance(const double array_p[], const double array_q[]){
+double manhattanDistance(const double array_user[], const double array_profile[]){
     int i; 
     int lgt;
     double result = 0;
     for(int i = 0; i < lgt; i++){
-        result += fabs(array1[i]-array2[i]); // Summerer 
+        result += fabs(array_user[i]-array_profile[i]); // Summerer 
     }
     return result;
 }
 
 // K-Nearest-Neighbours Algoritme finder den elev som brugeren er taettest paa
-void kNN(const double array_p[], const double array_q[]){
+student_profile kNN(student_profile user, student_profile profiles[]){
     int i;
     int index;
+    double distance;
     double minimum = 5000;
 
-    for(i = 0; i < ANTAL_ELEVER; i++){
-        distance = manhattanDistance(array_p, array_q);
+    // Omdanner user student profile til et array for at klargoere til KNN
+    double processed_user[MAX_PROCESSED_DATA] = *preprocessStudentStructs(user);
+
+    for(i = 0; i < NUM_OF_STUDENTS; i++){
+        double processed_data_profile[MAX_PROCESSED_DATA] = *preprocessStudentStructs(profiles[i]);
+        distance = manhattanDistance(processed_user, processed_data_profile);
         if (distance <= minimum){
             minimum = distance;
             index = i;
-
         }
+        free(processed_data_profile);
     }
+    free(processed_user);
+    
+    return profiles[index];
 }
 
 // Funktion som omdanner structs til arrays

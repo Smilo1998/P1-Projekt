@@ -53,6 +53,9 @@ void subjectInput(student_profile *user_profile);
 student_profile addStudent(void);
 int favoriteSubjectDecider(char* user_subject);
 
+// Prototyper til funktioner fra knn.c
+double manhattanDistance(const double array_p[], const double array_q[]);
+
 //Main funktion
 int main(void);
 

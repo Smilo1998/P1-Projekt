@@ -35,4 +35,5 @@ void getStudentProfiles(student_profile profiles[]){
         .education_choice = "Erhvervsoekonomi"
     };
 }
+
   

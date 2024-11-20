@@ -58,7 +58,7 @@ student_profile addStudent(void);
 int favoriteSubjectDecider(char* user_subject);
 
 // Prototyper til funktioner fra knn.c
-double manhattanDistance(const double array_p[], const double array_q[]);
+double manhattanDistance(const double array_user[], const double array_profile[]);
 double *preprocessStudentStructs(student_profile student);
 student_profile kNN(student_profile user, student_profile profiles[]);
 

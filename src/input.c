@@ -43,28 +43,42 @@ void subjectInput(student_profile *user_profile){
     }
 }
 
+
+//Tager et string array som input og gennemgår hvert index og konverterer det til et Uppercase bogstav
+void toUpperCase (char str[])
+{
+    for int i = 0; stri[i] != '\0'; i++
+    {
+        stri[i] = toupper(stri[i]);
+    }
+}
+
+
 int favoriteSubjectDecider(char* user_subject){
     // *user_subject = strlwr(user_subject);  
     // printf("User subject: %s \n", user_subject);  
-    if (strcmp(user_subject, "Matematik") == 0) {
+
+    toUpperCase(user_subject);
+
+    if (strcmp(user_subject, "MATEMATIK") == 0) {
         return MATEMATIK;
-    } else if (strcmp(user_subject, "Fysik") == 0) {
+    } else if (strcmp(user_subject, "FYSIK") == 0) {
         return FYSIK;
-    } else if (strcmp(user_subject, "Kemi") == 0) {
+    } else if (strcmp(user_subject, "KEMI") == 0) {
         return KEMI;
-    } else if (strcmp(user_subject, "Biologi") == 0) {
+    } else if (strcmp(user_subject, "BIOLOGI") == 0) {
         return BIOLOGI;
-    } else if (strcmp(user_subject, "Dansk") == 0) {
+    } else if (strcmp(user_subject, "DANSK") == 0) {
         return DANSK;
-    } else if (strcmp(user_subject, "Engelsk") == 0) {
+    } else if (strcmp(user_subject, "ENGELSK") == 0) {
         return ENGELSK;
-    } else if (strcmp(user_subject, "Historie") == 0) {
+    } else if (strcmp(user_subject, "HISTORIE") == 0) {
         return HISTORIE;
-    } else if (strcmp(user_subject, "Samfundsfag") == 0) {
+    } else if (strcmp(user_subject, "SAMFUNDSFAG") == 0) {
         return SAMFUNDSFAG;
-    } else if (strcmp(user_subject, "Virksomhedsoekonomi") == 0) {
+    } else if (strcmp(user_subject, "VIRKSOMHEDSOEKONOMI") == 0) {
         return VIRKSOMHEDSOEKONOMI;
-    } else if (strcmp(user_subject, "Afsaetning") == 0) {
+    } else if (strcmp(user_subject, "AFSAETNING") == 0) {
         return AFSAETNING;
     } else {
         return -1; // Ukendt fag

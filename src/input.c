@@ -4,6 +4,7 @@
 student_profile addStudent(void){
     student_profile user_profile;
     char user_subject[SUBJECT_NAME];
+    int valid_subject = 0;
 
     // Prompter efter brugers karaktergennemsnit
     printf("Enter your grade average: ");
@@ -20,12 +21,12 @@ student_profile addStudent(void){
     int subjectValidation = favoriteSubjectDecider(user_subject);
     if (subjectValidation != -1)
     {
-        user_profile.favorite_subject = subjectValidation
+        user_profile.favorite_subject = subjectValidation;
         valid_subject = 1;
     }
     else
     {
-        printf("Invalid subject. Type the subjects name in danish.")
+        printf("Invalid subject. Type the subjects name in danish.");
     }
     
     return user_profile;
@@ -99,5 +100,8 @@ int favoriteSubjectDecider(char* user_subject){
         return -1; // Ukendt fag
     }
 }
+
+
+
 
 

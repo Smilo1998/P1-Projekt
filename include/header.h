@@ -13,6 +13,8 @@
 #define SUBJECT_NAME 40
 #define MAX_DATA 100
 #define NUM_OF_STUDENTS 20
+#define NUMBER_OF_BOOLS 10
+#define MAX_PROCESSED_DATA 12
 
 // Enumeration typer til fagene
 typedef enum{
@@ -45,6 +47,7 @@ typedef struct student_profile{
 //Her indsaettes prototyper af ALLE funktioner der laves i seperate dokumenter.
 // - Det er ikke noedvendigt at indsaette prototyperne i en bestemt raekkefoelge. Men organiser dem saa man kan finde rundt i dem.
 
+
 // Prototyper til funktioner fra Struct.c
 void getStudentProfiles(student_profile profiles[]);
 
@@ -54,8 +57,13 @@ void subjectInput(student_profile *user_profile);
 student_profile addStudent(void);
 int favoriteSubjectDecider(char* user_subject);
 
+// Prototyper til funktioner fra knn.c
+double manhattanDistance(const double array_p[], const double array_q[]);
+
 //Main funktion
 int main(void);
+
+double *preprocessStudentStructs(student_profile student);
 
 
 

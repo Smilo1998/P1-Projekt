@@ -1,4 +1,22 @@
 #include "../include/header.h"
+
+double *preprocessStudentStructs(student_profile student){
+    int i;
+    double *processed_student = malloc(sizeof(double) * MAX_PROCESSED_DATA); // TILFØJ FREE SENERE I PROGRAMMET;
+    if(processed_student == NULL){
+        printf("Memory allocation error in preprocessStudentStructs");
+        exit(EXIT_FAILURE);
+    }
+
+    for(i = 0; i < NUMBER_OF_BOOLS; i++){
+        processed_student[i] = (double)student.fag_array[i];
+    }
+    processed_student[i++] = student.gpa;
+    processed_student[i++] = student.favorite_subject;
+
+    return processed_student;
+}
+
 /*
 // Struct eksempel.
 struct Point{

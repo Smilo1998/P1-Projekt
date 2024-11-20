@@ -4,70 +4,37 @@
 // Libraries
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+#include <string.h>
 
 // Symbolske konstanter 
 #define NAME_LENGTH 30
 #define SUBJECT_NAME 40
 #define MAX_DATA 100
+#define NUM_OF_STUDENTS 20
 
 // Enumeration typer til fagene
 typedef enum{
-    MATEMATIK = 1,
-    FYSIK = 2,
-    KEMI = 3,
-    BIOTEKNOLOGI = 4,
-    BIOLOGI = 5,
-    ASTRONOMI = 6,
-    GEOLOGI = 7,
-    
-    INFORMATIK = 10,
-    PROGRAMMERING = 11,
-    TEKNOLOGI = 12,
-    ROBOTTEKNOLOGI = 13,
-    DESIGN = 14,
-
-    GEOGRAFI = 20,
-    SAMFUNDSFAG = 21,
-    HISTORIE = 22,
-    RELIGION = 23,
-    FILOSOFI = 24,
-    PSYKOLOGI = 25,
-    
-    ENGELSK = 30,
-    TYSK = 31,
-    FRANSK = 32,
-    SPANSK = 33,
-    LATIN = 34,
-    
-    BILLEDKUNST = 40,
-    MUSIK = 41,
-    DRAMA = 42,
-    LITTERATUR = 43,
-    
-    IDRAET = 50,
-    SUNDHED = 51,
-    
-    ERHVERVSOEKONOMI = 60,
-    AFSAETNING = 61,
-    MARKEDSFOERING = 62,
-    INNOVATION = 63,
-    VIRKSOMHEDSOEKONOMI = 64,
-
-    MEDIEFAG = 70,
-    KOMMUNIKATION = 71,
-    FILMANALYSE = 72,
-    
-    DANSK = 80,
-    RETORIK = 81
-} fag;
+    MATEMATIK = 0,
+    FYSIK = 1,
+    KEMI = 2,
+    BIOLOGI = 3,
+    DANSK = 4,
+    ENGELSK = 5,
+    HISTORIE = 6,
+    SAMFUNDSFAG = 7,
+    VIRKSOMHEDSOEKONOMI = 8,
+    AFSAETNING = 9,      
+} fag_tal_id;
 
 
 
 // Struct til elevprofiler
 typedef struct student_profile{
     double gpa;
-    char favorite_subject[SUBJECT_NAME + 1];
-    char education_choice[SUBJECT_NAME + 1]
+    int fag_array[10];
+    int favorite_subject;
+    char education_choice[SUBJECT_NAME + 1];
 } student_profile;
 
 // Tilfoej dette: #include "../include/header.h" i alle filer.
@@ -78,10 +45,16 @@ typedef struct student_profile{
 // - Det er ikke noedvendigt at indsaette prototyperne i en bestemt raekkefoelge. Men organiser dem saa man kan finde rundt i dem.
 
 // Prototyper til funktioner fra Struct.c
-void getStruct();
+void getStudentProfiles(student_profile profiles[]);
 
 // Prototyper til funktioner fra Input.c
-void inputData();
+void inputData(void);
+void subjectInput(student_profile *user_profile);
+student_profile addStudent(void);
+int favoriteSubjectDecider(char* user_subject);
+
+//Main funktion
+int main(void);
 
 
 

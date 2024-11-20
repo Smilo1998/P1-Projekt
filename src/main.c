@@ -7,11 +7,11 @@ int main(void){
     getStudentProfiles(profiles);
     student_profile user = addStudent();
     // Finder de elevprofiler som vores bruger minder mest om
-    kNN(user, profiles);
+    student_profile nearest_neighbour = kNN(user, profiles);
     // Outputter til brugeren
-    
 
-   
+    printf("\n%s\n", nearest_neighbour.education_choice);
+    
     
     return 0;
 }

@@ -15,22 +15,22 @@ student_profile addStudent(void){
     
     while(!valid_subject){
 
-    printf("What is your favorite subject? \n");
-    scanf("%s", user_subject);
+        printf("What is your favorite subject? \n");
+        scanf("%s", user_subject);
 
-    int subjectValidation = favoriteSubjectDecider(user_subject);
-    if (subjectValidation != -1)
-    {
-        user_profile.favorite_subject = subjectValidation;
-        valid_subject = 1;
-    }
-    else
-    {
-        printf("Invalid subject. Type the subjects name in danish.");
-    }
+        int subjectValidation = favoriteSubjectDecider(user_subject);
+        if (subjectValidation != -1)
+        {
+            user_profile.favorite_subject = subjectValidation;
+            valid_subject = 1;
+        }
+        else
+        {
+            printf("Invalid subject. Type the subjects name in danish.\n");
+        }
     
-    return user_profile;
     }
+    return user_profile;
 }  
 
 //Spørger efter hvert fag og svaret modtages i 1 eller 0 for at gøre det nemmere i fremtiden. kan altid ændres.
@@ -67,7 +67,6 @@ void toUpperCase (char str[])
         str[i] = toupper(str[i]);
     }
 }
-
 
 int favoriteSubjectDecider(char* user_subject){
     // *user_subject = strlwr(user_subject);  

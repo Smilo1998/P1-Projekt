@@ -11,11 +11,25 @@ student_profile addStudent(void){
     // Prompter og gemmer de fag brugeren har haft i et boolean array
     subjectInput(&user_profile);
     // Prompter efter brugerens yndlingsfag
+    
+    while(!valid_subject){
+
     printf("What is your favorite subject? \n");
     scanf("%s", user_subject);
-    user_profile.favorite_subject = favoriteSubjectDecider(user_subject);
+
+    int subjectValidation = favoriteSubjectDecider(user_subject);
+    if (subjectValidation != -1)
+    {
+        user_profile.favorite_subject = subjectValidation
+        valid_subject = 1;
+    }
+    else
+    {
+        printf("Invalid subject. Type the subjects name in danish.")
+    }
     
     return user_profile;
+    }
 }  
 
 //Spørger efter hvert fag og svaret modtages i 1 eller 0 for at gøre det nemmere i fremtiden. kan altid ændres.
@@ -47,9 +61,9 @@ void subjectInput(student_profile *user_profile){
 //Tager et string array som input og gennemgår hvert index og konverterer det til et Uppercase bogstav
 void toUpperCase (char str[])
 {
-    for int i = 0; stri[i] != '\0'; i++
+    for (int i = 0; str[i] != '\0'; i++)
     {
-        stri[i] = toupper(stri[i]);
+        str[i] = toupper(str[i]);
     }
 }
 
@@ -58,7 +72,8 @@ int favoriteSubjectDecider(char* user_subject){
     // *user_subject = strlwr(user_subject);  
     // printf("User subject: %s \n", user_subject);  
 
-    toUpperCase(user_subject);
+    // Konverterer til store bogstaver før sammenligning
+    toUpperCase(user_subject); 
 
     if (strcmp(user_subject, "MATEMATIK") == 0) {
         return MATEMATIK;

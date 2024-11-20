@@ -1,7 +1,4 @@
 #include "../include/header.h"
-<<<<<<< HEAD
-#define ANTAL_ELEVER 3
-=======
 
 double *preprocessStudentStructs(student_profile student){
     int i;
@@ -20,7 +17,6 @@ double *preprocessStudentStructs(student_profile student){
     return processed_student;
 }
 
->>>>>>> 82f34d83034d8782a1d5f928b5f1528f93bd90ce
 /*
 // Struct eksempel.
 struct Point{

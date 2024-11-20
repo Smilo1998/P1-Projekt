@@ -44,6 +44,8 @@ void subjectInput(student_profile *user_profile){
 }
 
 int favoriteSubjectDecider(char* user_subject){
+    // *user_subject = strlwr(user_subject);  
+    // printf("User subject: %s \n", user_subject);  
     if (strcmp(user_subject, "Matematik") == 0) {
         return MATEMATIK;
     } else if (strcmp(user_subject, "Fysik") == 0) {

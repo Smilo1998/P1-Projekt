@@ -12,7 +12,7 @@ int main(void){
     }
     printf("\n");
 
-    printf("User favorite subject: %d", user.favorite_subject);
+    printf("User favorite subject: %d in integer type\n", user.favorite_subject);
     
     return 0;
 }

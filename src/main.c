@@ -13,6 +13,8 @@ int main(void){
     printf("\n");
 
     printf("User favorite subject: %d in integer type\n", user.favorite_subject);
+
+    preprocessStudentStructs(user);
     
     return 0;
 }

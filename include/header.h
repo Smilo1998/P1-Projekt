@@ -11,11 +11,12 @@
 // Symbolske konstanter 
 #define NAME_LENGTH 30
 #define SUBJECT_NAME 40
-#define MAX_DATA 100
+#define MAX_DATA 250
 #define NUM_OF_STUDENTS 3
 #define NUMBER_OF_BOOLS 10
 #define MAX_PROCESSED_DATA 12
 #define MAX_CITY 10
+#define MAX_EDUCATIONS 20
 
 // Enumeration typer til fagene
 typedef enum{
@@ -50,20 +51,23 @@ typedef enum{
     ROSKILDE = 9,
 } cities;
 
+// Struct til videregående uddannelser
+typedef struct educations{
+    char *name[MAX_DATA];
+    double min_grade[MAX_CITY];
+    int city[MAX_CITY];
+    char *link[MAX_DATA];   
+} educations;
+
 // Struct til elevprofiler
 typedef struct student_profile{
     double gpa;
     int fag_array[10];
     int favorite_subject;
-    char education_choice[SUBJECT_NAME + 1];
+    educations education_choice;
 } student_profile;
 
-// Struct til videregående uddannelser
-typedef struct educations{
-    double min_grade[MAX_CITY];
-    int city[MAX_CITY];
-    char *link[MAX_DATA];   
-} educations;
+
 
 
 
@@ -76,7 +80,8 @@ typedef struct educations{
 
 
 // Prototyper til funktioner fra Struct.c
-void getStudentProfiles(student_profile profiles[]);
+void getStudentProfiles(student_profile profiles[],  educations education_choice_array[]);
+void getEducationData(educations education_choice[]);
 
 // Prototyper til funktioner fra Input.c
 void inputData(void);

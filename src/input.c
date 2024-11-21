@@ -34,8 +34,9 @@ void subjectInput(student_profile *user_profile){
     int i;
     char* subjects_print[10];
     int valid_binary_input = 0;
+    char temp;
 
-    subjects_print[0] = "Matematik";
+    subjects_print[0] = "Mate matik";
     subjects_print[1] = "Fysik";
     subjects_print[2] = "Kemi";
     subjects_print[3] = "Biologi";
@@ -45,25 +46,41 @@ void subjectInput(student_profile *user_profile){
     subjects_print[7] = "Samfundsfag";
     subjects_print[8] = "Virksomhedsoekonomi";
     subjects_print[9] = "Afsaetning";
+
+    // Prompter brugeren til at skrive 
+    printf("Type the level of which you completed the subject (A, B or C. 0 if not completed).");
     
     for(i = 0; i < 10; i++){
         //Saettes tilbage til 0 ved start at hver iteration for at loekken kan koere igen.
         valid_binary_input = 0;
 
+        
         // While-loekken koerer indtil der indtastes et gyldigt input (0 eller 1). Fungerer som fejlsirking mod ugyldigt bruger-input.
+       
         while(!valid_binary_input){
-            printf("Type 1 if you have completed the following subject, 0 if you have not completed the subject.\n");
-            printf("%s: ", subjects_print[i]);
+            printf("\n%s: ", subjects_print[i]);
+            scanf(" %c", &temp);
 
-        //Tjekker om input fra scanf er et heltal og om det enten er tallet 0 eller 1.
-        //Dette sikrer baade mod indtastning af andre heltal og andre symboler som bogstaver.
-        if(scanf("%d", &user_profile->fag_array[i]) == 1 && (user_profile->fag_array[i] == 0 || user_profile->fag_array[i] == 1)){
-            //Saettes til 1 for at afslutte loekken i den nuvaerende iteration.
-            valid_binary_input = 1;
-        } else {
-            printf("Invalid input!\n");
-            //Dette rydder inputbufferen for at komme af med eventuelle forkert inputs som bogstaver og andre symboler end heltal.
-            while(getchar() != '\n');
+            switch(temp){
+                case 'A': 
+                    user_profile->fag_array[i] = A;
+                    valid_binary_input = 1;
+                    break;
+                case 'B':
+                    user_profile->fag_array[i] = B;
+                    valid_binary_input = 1;
+                    break;
+                case 'C':
+                    user_profile->fag_array[i] = C;
+                    valid_binary_input = 1;
+                    break;
+                case '0':
+                    user_profile->fag_array[i] = 0;
+                    valid_binary_input = 1;
+                    break;
+                default:
+                    printf("Invalid input!\n");
+
             }
         }
     }

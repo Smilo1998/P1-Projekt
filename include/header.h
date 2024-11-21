@@ -15,6 +15,7 @@
 #define NUM_OF_STUDENTS 3
 #define NUMBER_OF_BOOLS 10
 #define MAX_PROCESSED_DATA 12
+#define MAX_CITY 10
 
 // Enumeration typer til fagene
 typedef enum{
@@ -30,7 +31,24 @@ typedef enum{
     AFSAETNING = 9,      
 } fag_tal_id;
 
+typedef enum{
+    A = 3,
+    B = 2,
+    C = 1,
+} fag_niveau;
 
+typedef enum{
+    KOEBENHAVN = 0,
+    AARHUS = 1,
+    ODENSE = 2,
+    AALBORG = 3,
+    ESBJERG = 4,
+    RANDERS = 5, 
+    HORSENS = 6,
+    KOLDING = 7,
+    VEJLE = 8,
+    ROSKILDE = 9,
+} cities;
 
 // Struct til elevprofiler
 typedef struct student_profile{
@@ -39,6 +57,15 @@ typedef struct student_profile{
     int favorite_subject;
     char education_choice[SUBJECT_NAME + 1];
 } student_profile;
+
+// Struct til videregående uddannelser
+typedef struct educations{
+    double min_grade[MAX_CITY];
+    int city[MAX_CITY];
+    char *link[MAX_DATA];   
+} educations;
+
+
 
 // Tilfoej dette: #include "../include/header.h" i alle filer.
 

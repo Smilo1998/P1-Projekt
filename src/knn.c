@@ -47,7 +47,7 @@ double *preprocessStudentStructs(student_profile student){
         printf("Memory allocation error in preprocessStudentStructs");
         exit(EXIT_FAILURE);
     }
-
+ 
     for(i = 0; i < NUMBER_OF_BOOLS; i++){
         processed_student[i] = (double)student.fag_array[i];
     }

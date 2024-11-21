@@ -7,29 +7,30 @@ student_profile addStudent(void){
     int valid_subject = 0;
     int valid_gpa = 0;
 
-    // Prompter efter brugers karaktergennemsnit
+    // While-loekken gentager indtil brugeren indtaster et gyldigt input. 
+    // Fungerer som fejlsirking mod stavefejl eller ugyldigt input. 
     while(!valid_gpa){
         printf("Enter your grade average: ");
-        
+        // Tjekker at input er gyldigt ved om det er et heltal og indenfor karakterskalaen.
         if ((scanf(" %lf", &user_profile.gpa) == 1) && user_profile.gpa >= 0 && user_profile.gpa <= 13){
             valid_gpa = 1;
-        }else{
+        } else {
             printf("Invalid GPA!\n");
-            //Dette rydder inputbufferen for at komme af med eventuelle forkert inputs som bogstaver og andre symboler end doubles.
-            while(getchar() != '\n');
+            clearBuffer(); // Rydder inputbufferen for at forhindre ugyldige inputs i at påvirke efterfølgende input.
         }
-        
     }
     // Prompter og gemmer de fag brugeren har haft i et boolean array
     subjectInput(&user_profile);
     
-    // While-loekken koerer indtil der indtastes et gyldigt fag. Fungerer som fejlsirking mod stavefejl eller ugyldigt bruger-input. 
+    // While-loekken gentager indtil brugeren indtaster et gyldigt input. 
+    // Fungerer som fejlsirking mod stavefejl eller ugyldigt input.
     while(!valid_subject){
-        // Prompter efter brugerens yndlingsfag
         printf("What is your favorite subject? \n");
         scanf("%s", user_subject);
-
+        // Sammenligner brugerens input med en predefineret liste af fag
+        // for at validere om det er et gyldigt input.
         int subjectValidation = favoriteSubjectDecider(user_subject);
+        
         if (subjectValidation != -1){
             user_profile.favorite_subject = subjectValidation;
             valid_subject = 1;
@@ -44,7 +45,7 @@ student_profile addStudent(void){
 void subjectInput(student_profile *user_profile){
     int i;
     char* subjects_print[10];
-    int valid_binary_input = 0;
+    int valid_level_input = 0;
     char temp[5];
 
     subjects_print[0] = "Matematik";
@@ -58,54 +59,38 @@ void subjectInput(student_profile *user_profile){
     subjects_print[8] = "Virksomhedsoekonomi";
     subjects_print[9] = "Afsaetning";
 
-    // Prompter brugeren til at skrive 
     printf("Type the level of which you completed the subject (A, B or C. 0 if not completed).");
     
     for(i = 0; i < 10; i++){
-        //Saettes tilbage til 0 ved start at hver iteration for at loekken kan koere igen.
-        valid_binary_input = 0;
-  
-        // While-loekken koerer indtil der indtastes et gyldigt input (0 eller 1). Fungerer som fejlsirking mod ugyldigt bruger-input.
-        while(!valid_binary_input){
+        valid_level_input = 0; // Nulstilles for at gentage loekken ved hver iteration.
 
+        // While-loekken gentager, indtil brugeren indtaster et gyldigt input.
+        // Fungerer som fejlsirking mod stavefejl eller ugyldigt input. 
+        while(!valid_level_input){ 
             printf("\n%s: ", subjects_print[i]);
             scanf(" %4s", temp);
-            
-            if (strcmp(temp, "A") == 0 || strcmp(temp, "a") == 0) {
-                user_profile->fag_array[i] = A;
-                valid_binary_input = 1;
-            } else if (strcmp(temp, "B") == 0 || strcmp(temp, "b") == 0) {
-                user_profile->fag_array[i] = B;
-                valid_binary_input = 1;
-            } else if (strcmp(temp, "C") == 0 || strcmp(temp, "c") == 0) {
-                user_profile->fag_array[i] = C;
-                valid_binary_input = 1;
-            } else if (strcmp(temp, "0") == 0) {
-                user_profile->fag_array[i] = 0;
-                valid_binary_input = 1;
+            // Konverterer input til store bogstaver for at undgaa problemer med casing-forskelle under validation.
+            toUpperCase(temp);
+            // Tjekker at input enten er A, B, C eller 0 ved brug af strcmp() funktionen fra string.h biblioteket.
+            if (strcmp(temp, "A") == 0 || strcmp(temp, "B") == 0 || strcmp(temp, "C") == 0 || strcmp(temp, "0") == 0){
+                // Tildeler det første char fra temp til faget, som kun kan vaere enten A, B, C eller 0, hvis ovenstaaende if-tjek er bestaaet.
+                user_profile->fag_array[i] = temp[0];
+                valid_level_input = 1;
             } else{
                 printf("Invalid Input!\n");
             }  
-            // Clearer input buffer
-            while(getchar() != '\n');    
+            clearBuffer(); // Rydder inputbufferen for at forhindre ugyldige inputs i at paavirke efterfoelgende input.
         } 
     }
 }
 
-//Tager et char array som input og gennemgaar hvert index og konverterer det til et Uppercase bogstav
-//Det goer den ved brug af toupper() funktionen fra ctype.h biblioteket, som omdanner smaa bogstaver til store bogstaver.
-void toUpperCase (char str[]){
-    for (int i = 0; str[i] != '\0'; i++){
-        str[i] = toupper(str[i]);
-    }
-}
-
 int favoriteSubjectDecider(char* user_subject){ 
-    // Konverterer user_subject til store bogstaver foer sammenligning, for at fejlsikre mod case-forskelle.
+    // Konverterer user_subject til store bogstaver foer sammenligning, for at fejlsikre mod casing-forskelle.
+    // Goeres ved brug af toupper() funktionen fra ctype.h biblioteket.
     toUpperCase(user_subject); 
 
-    //Sammenligner den upperCase konverteret version af user_subject med en raekke forskellige fag.
-    //Hvis der er et match, returneres den tilsvarende enum vaerdi for det paagaeldende fag. Ellers returneres -1
+    // Sammenligner den upperCase konverteret version af user_subject med en raekke fag.
+    // Ved et match returneres den tilsvarende enum vaerdi for det paagaeldende fag. Ellers returneres -1
     if (strcmp(user_subject, "MATEMATIK") == 0) {
         return MATEMATIK;
     } else if (strcmp(user_subject, "FYSIK") == 0) {
@@ -131,7 +116,17 @@ int favoriteSubjectDecider(char* user_subject){
     }
 }
 
+// Rydder inputbufferen ved at laese og kassere alle tegn indtil ('\n') som markerer at inputbufferen er tom.
+// Dette sikrer, at eventuelle resterende tegn fra forkerte inputs ikke paavirker det efterfoelgende input.
+void clearBuffer(){
+    while(getchar() != '\n'); 
+}
 
-
-
-
+// Tager et char array som input og konverterer hvert index til et Uppercase.
+// Det goeres ved brug af toupper() funktionen fra ctype.h biblioteket, som omdanner smaa bogstaver til store bogstaver.
+// toupper() tager kun et enkelt char som input, derfor er et for-loop noedvendigt for at konvertere hele char strings.
+void toUpperCase (char str[]){
+    for (int i = 0; str[i] != '\0'; i++){
+        str[i] = toupper(str[i]);
+    }
+}

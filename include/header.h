@@ -79,15 +79,16 @@ typedef struct student_profile{
 // - Det er ikke noedvendigt at indsaette prototyperne i en bestemt raekkefoelge. Men organiser dem saa man kan finde rundt i dem.
 
 
-// Prototyper til funktioner fra Struct.c
+// Prototyper til funktioner fra struct.c
 void getStudentProfiles(student_profile profiles[],  educations education_choice_array[]);
 void getEducationData(educations education_choice[]);
 
-// Prototyper til funktioner fra Input.c
+// Prototyper til funktioner fra input.c
 void inputData(void);
 void subjectInput(student_profile *user_profile);
 student_profile addStudent(void);
 int favoriteSubjectDecider(char* user_subject);
+void clearBuffer();
 void toUpperCase (char str[]);
 
 // Prototyper til funktioner fra knn.c

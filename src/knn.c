@@ -13,7 +13,6 @@ student_profile kNN(student_profile user, student_profile profiles[]){
     for(i = 0; i < NUM_OF_STUDENTS; i++){
         double *processed_data_profile = preprocessStudentStructs(profiles[i]);
         distance = manhattanDistance(processed_user, processed_data_profile);
-        printf("Distance: %lf", distance);
 
         if (distance <= minimum){
             minimum = distance;
@@ -23,8 +22,6 @@ student_profile kNN(student_profile user, student_profile profiles[]){
     }
 
     free(processed_user);
-    printf("index: %d\n", index);
-    printf("i = %d\n", i);
     return profiles[index];
 }
 

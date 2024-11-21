@@ -11,10 +11,8 @@ int main(void){
     // Finder de elevprofiler som vores bruger minder mest om
     student_profile nearest_neighbour = kNN(user, profiles);
     // Outputter til brugeren
-
-    printf("\n%s\n", *nearest_neighbour.education_choice.name);
-    printf("\n%s\n", *nearest_neighbour.education_choice.link);
     
+    printEducation(nearest_neighbour);
     
     
     return 0;

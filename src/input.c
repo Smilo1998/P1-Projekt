@@ -45,7 +45,7 @@ void subjectInput(student_profile *user_profile){
     int i;
     char* subjects_print[10];
     int valid_binary_input = 0;
-    char *temp = "0";
+    char temp[5];
 
     subjects_print[0] = "Matematik";
     subjects_print[1] = "Fysik";
@@ -64,13 +64,12 @@ void subjectInput(student_profile *user_profile){
     for(i = 0; i < 10; i++){
         //Saettes tilbage til 0 ved start at hver iteration for at loekken kan koere igen.
         valid_binary_input = 0;
-
-        
+  
         // While-loekken koerer indtil der indtastes et gyldigt input (0 eller 1). Fungerer som fejlsirking mod ugyldigt bruger-input.
-       
         while(!valid_binary_input){
+
             printf("\n%s: ", subjects_print[i]);
-            scanf(" %s", temp);
+            scanf(" %4s", temp);
             
             if (strcmp(temp, "A") == 0 || strcmp(temp, "a") == 0) {
                 user_profile->fag_array[i] = A;
@@ -86,7 +85,9 @@ void subjectInput(student_profile *user_profile){
                 valid_binary_input = 1;
             } else{
                 printf("Invalid Input!\n");
-            }      
+            }  
+            // Clearer input buffer
+            while(getchar() != '\n');    
         } 
     }
 }

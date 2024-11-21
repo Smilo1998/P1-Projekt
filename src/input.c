@@ -5,10 +5,21 @@ student_profile addStudent(void){
     student_profile user_profile;
     char user_subject[SUBJECT_NAME];
     int valid_subject = 0;
+    int valid_gpa = 0;
 
     // Prompter efter brugers karaktergennemsnit
-    printf("Enter your grade average: ");
-    scanf(" %lf", &user_profile.gpa);
+    while(!valid_gpa){
+        printf("Enter your grade average: ");
+        
+        if ((scanf(" %lf", &user_profile.gpa) == 1) && user_profile.gpa >= 0 && user_profile.gpa <= 13){
+            valid_gpa = 1;
+        }else{
+            printf("Invalid GPA!\n");
+            //Dette rydder inputbufferen for at komme af med eventuelle forkert inputs som bogstaver og andre symboler end doubles.
+            while(getchar() != '\n');
+        }
+        
+    }
     // Prompter og gemmer de fag brugeren har haft i et boolean array
     subjectInput(&user_profile);
     
@@ -34,9 +45,9 @@ void subjectInput(student_profile *user_profile){
     int i;
     char* subjects_print[10];
     int valid_binary_input = 0;
-    char temp;
+    char temp[5];
 
-    subjects_print[0] = "Mate matik";
+    subjects_print[0] = "Matematik";
     subjects_print[1] = "Fysik";
     subjects_print[2] = "Kemi";
     subjects_print[3] = "Biologi";
@@ -53,36 +64,31 @@ void subjectInput(student_profile *user_profile){
     for(i = 0; i < 10; i++){
         //Saettes tilbage til 0 ved start at hver iteration for at loekken kan koere igen.
         valid_binary_input = 0;
-
-        
+  
         // While-loekken koerer indtil der indtastes et gyldigt input (0 eller 1). Fungerer som fejlsirking mod ugyldigt bruger-input.
-       
         while(!valid_binary_input){
+
             printf("\n%s: ", subjects_print[i]);
-            scanf(" %c", &temp);
-
-            switch(temp){
-                case 'A': 
-                    user_profile->fag_array[i] = A;
-                    valid_binary_input = 1;
-                    break;
-                case 'B':
-                    user_profile->fag_array[i] = B;
-                    valid_binary_input = 1;
-                    break;
-                case 'C':
-                    user_profile->fag_array[i] = C;
-                    valid_binary_input = 1;
-                    break;
-                case '0':
-                    user_profile->fag_array[i] = 0;
-                    valid_binary_input = 1;
-                    break;
-                default:
-                    printf("Invalid input!\n");
-
-            }
-        }
+            scanf(" %4s", temp);
+            
+            if (strcmp(temp, "A") == 0 || strcmp(temp, "a") == 0) {
+                user_profile->fag_array[i] = A;
+                valid_binary_input = 1;
+            } else if (strcmp(temp, "B") == 0 || strcmp(temp, "b") == 0) {
+                user_profile->fag_array[i] = B;
+                valid_binary_input = 1;
+            } else if (strcmp(temp, "C") == 0 || strcmp(temp, "c") == 0) {
+                user_profile->fag_array[i] = C;
+                valid_binary_input = 1;
+            } else if (strcmp(temp, "0") == 0) {
+                user_profile->fag_array[i] = 0;
+                valid_binary_input = 1;
+            } else{
+                printf("Invalid Input!\n");
+            }  
+            // Clearer input buffer
+            while(getchar() != '\n');    
+        } 
     }
 }
 

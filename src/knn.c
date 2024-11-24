@@ -3,25 +3,35 @@
 // K-Nearest-Neighbours Algoritme finder den elev som brugeren er taettest paa
 student_profile kNN(student_profile user, student_profile profiles[]){
     int i;
-    int index;
-    double distance;
+    int index = -1;
+    double distance = 1000000;
     double minimum = 999999;
 
     // Omdanner user student profile til et array for at klargoere til KNN
     double *processed_user = preprocessStudentStructs(user);
 
     for(i = 0; i < NUM_OF_STUDENTS; i++){
-        double *processed_data_profile = preprocessStudentStructs(profiles[i]);
-        distance = manhattanDistance(processed_user, processed_data_profile);
-
-        if (distance <= minimum){
-            minimum = distance;
-            index = i;
+        if (user.gpa >= *profiles[i].education_choice.min_grade){
+            // Profiles structen gemmes i et double array
+            double *processed_data_profile = preprocessStudentStructs(profiles[i]);
+            distance = manhattanDistance(processed_user, processed_data_profile);
+            // Hvis distancen mellem user og profile er mindre end nuværende minimum bliver distance det nye minimum og index gemmes
+            if (distance <= minimum){
+                minimum = distance;
+                index = i;
+            }
+        // Fjerner dynamisk allokering for profile
+        free(processed_data_profile); 
         }
-        free(processed_data_profile);
     }
-
+    // Fjerner dynamisk allokering for user
     free(processed_user);
+    // Hvis ingen bruger findes fastholdes index på -1 og programmet finder altså ikke en uddannelse der matcher personen
+    if (index == -1) {
+        printf("No suitable profile found.\n");
+        exit(EXIT_FAILURE);
+    }
+    // Returner den profil som passer bedst med user
     return profiles[index];
 }
 
@@ -29,7 +39,7 @@ student_profile kNN(student_profile user, student_profile profiles[]){
 double manhattanDistance(const double array_user[], const double array_profile[]){
     int i; 
     double result = 0;
-
+    // Udregner summen af forskellen mellem de to arrays
     for(i = 0; i < MAX_PROCESSED_DATA; i++){
         result += fabs((array_user[i]-array_profile[i])); // Summerer 
     }

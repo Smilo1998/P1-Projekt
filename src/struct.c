@@ -61,10 +61,7 @@ void getEducationData(educations education_choice[]){
         .min_grade = {8.4, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         .city = {1, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         .link = {"https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/tekniskvidenskabeligebacheloruddannelser/civilingenioeruddannelser/fysik-og-ingenioervidenskab"},
-    };
-    
-
-    
+    };   
 }
 
 

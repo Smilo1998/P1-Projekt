@@ -40,13 +40,13 @@ void getEducationData(educations education_choice[]){
 
     education_choice[0] = (educations) {
         .name = {"Software AAU"},
-        .min_grade = {5.4, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        .min_grade = {5.4, 0, 0, 2, 0, 0, 0, 0, 0, 0},
         .city = {1, 0, 0, 1, 0, 0, 0, 0, 0, 0 },
         .link = {"https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/tekniskvidenskabeligebacheloruddannelser/civilingenioeruddannelser/software"},
     };
     education_choice[1] = (educations) {
         .name = {"Erhvervsoekonomi, HA"},
-        .min_grade = {7.9, 7.9, 6.7, 0, 0, 0, 0, 0, 0, 6},
+        .min_grade = {7.9, 7.9, 6.7, 0, 0, 0, 0, 2, 0, 6},
         .city = {1, 1, 1, 1, 1, 0, 0, 1, 0, 1},
         .link = {"https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/samfundsvidenskabeligebacheloruddannelser/erhvervsoekonomi/erhvervsoekonomi-ha"},
     };

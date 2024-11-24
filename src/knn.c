@@ -11,7 +11,9 @@ student_profile kNN(student_profile user, student_profile profiles[]){
     double *processed_user = preprocessStudentStructs(user);
 
     for(i = 0; i < NUM_OF_STUDENTS; i++){
-        if (user.gpa >= *profiles[i].education_choice.min_grade){
+        double minimum_grade = findMinimumGrade(profiles[i].education_choice.min_grade, MAX_CITY); // Finder den mindste karakter som ikke er 0 i min_grade array
+
+        if (user.gpa >= minimum_grade){ 
             // Profiles structen gemmes i et double array
             double *processed_data_profile = preprocessStudentStructs(profiles[i]);
             distance = manhattanDistance(processed_user, processed_data_profile);
@@ -62,4 +64,16 @@ double *preprocessStudentStructs(student_profile student){
     processed_student[i++] = student.favorite_subject;
 
     return processed_student;
+}
+
+double findMinimumGrade(double min_grade[], int size){
+    int i;
+    double minimum = min_grade[0];
+
+    for(i = 0; i < size; i++){
+        if(min_grade[i] < minimum && min_grade[i] != 0){
+            minimum = min_grade[i];
+        }
+    }
+    return minimum;
 }

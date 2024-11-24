@@ -95,6 +95,7 @@ void toUpperCase (char str[]);
 double manhattanDistance(const double array_user[], const double array_profile[]);
 double *preprocessStudentStructs(student_profile student);
 student_profile kNN(student_profile user, student_profile profiles[]);
+double findMinimumGrade(double min_grade[], int size);
 
 //Output funktioner
 void printEducation(student_profile student);

@@ -13,10 +13,10 @@
 #define SUBJECT_NAME 40
 #define MAX_DATA 250
 #define NUM_OF_STUDENTS 3
-#define NUMBER_OF_BOOLS 10
+#define NUM_OF_SUBJECTS 10
 #define MAX_PROCESSED_DATA 12
 #define MAX_CITY 10
-#define MAX_EDUCATIONS 20
+#define MAX_EDUCATIONS 4
 
 // Enumeration typer til fagene
 typedef enum{
@@ -79,8 +79,6 @@ typedef struct student_profile{
 
 
 // Prototyper til funktioner fra struct.c
-void getStudentProfiles(student_profile profiles[],  educations education_choice_array[]);
-void getEducationData(educations education_choice[]);
 void getEducations(educations education_choice[]);
 void getStudents(student_profile profiles[], educations education_choice_array[]);
 

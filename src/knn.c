@@ -57,7 +57,7 @@ double *preprocessStudentStructs(student_profile student){
         exit(EXIT_FAILURE);
     }
  
-    for(i = 0; i < NUMBER_OF_BOOLS; i++){
+    for(i = 0; i < NUM_OF_SUBJECTS; i++){
         processed_student[i] = (double)student.fag_array[i];
     }
     processed_student[i++] = student.gpa;

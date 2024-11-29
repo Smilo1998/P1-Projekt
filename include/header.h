@@ -12,11 +12,11 @@
 #define NAME_LENGTH 30
 #define SUBJECT_NAME 40
 #define MAX_DATA 250
-#define NUM_OF_STUDENTS 3
+#define NUM_OF_STUDENTS 6
 #define NUM_OF_SUBJECTS 10
 #define MAX_PROCESSED_DATA 12
 #define MAX_CITY 10
-#define MAX_EDUCATIONS 4
+#define MAX_EDUCATIONS 7
 
 // Enumeration typer til fagene
 typedef enum{

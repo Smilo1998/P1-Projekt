@@ -8,7 +8,7 @@ int main(void){
     getEducations(education_choice);
     getStudents(profiles, education_choice);
     
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < NUM_OF_STUDENTS; i++){
         printf("%lf\n", profiles[i].gpa);
         for(int j = 0; j < 10; j++){
             printf("%d ", profiles[i].fag_array[j]);

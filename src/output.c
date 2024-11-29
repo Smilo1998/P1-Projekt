@@ -4,10 +4,10 @@ void printEducation(student_profile student){
     int i;
     printf("---------------------------------------------");
     printf("\nRecommended education based on your inputs:\n");
-    printf("\n%s\n\n", *student.education_choice.name);
+    printf("\n%s\n\n", student.education_choice.name);
     printf("Cities with this education:\n");
         for(i = 0; i < MAX_CITY; i++){
-            if (student.education_choice.city[i] == 1){
+            if (student.education_choice.min_grade[i] >= 2){
                 switch(i){
                     case 0:
                         printf("\nKoebenhavn\n");
@@ -55,5 +55,5 @@ void printEducation(student_profile student){
                 }
             }
         }
-    printf("\nUse this link to read more:\n%s\n", *student.education_choice.link);
+    printf("\nUse this link to read more:\n%s\n\n", student.education_choice.link);
 }

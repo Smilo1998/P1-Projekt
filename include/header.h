@@ -53,10 +53,9 @@ typedef enum{
 
 // Struct til videregående uddannelser
 typedef struct educations{
-    char *name[MAX_DATA];
+    char name[MAX_DATA];
     double min_grade[MAX_CITY];
-    int city[MAX_CITY];
-    char *link[MAX_DATA];   
+    char link[MAX_DATA];   
 } educations;
 
 // Struct til elevprofiler
@@ -82,6 +81,7 @@ typedef struct student_profile{
 // Prototyper til funktioner fra struct.c
 void getStudentProfiles(student_profile profiles[],  educations education_choice_array[]);
 void getEducationData(educations education_choice[]);
+void getEducations(educations education_choice[]);
 
 // Prototyper til funktioner fra input.c
 void inputData(void);

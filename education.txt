@@ -1,0 +1,16 @@
+Software
+5.4 0 0 2 0 0 0 0 0 0
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/tekniskvidenskabeligebacheloruddannelser/civilingenioeruddannelser/software
+
+Erhvervsoekonomi
+7.9 7.9 6.7 2 2 0 0 2 0 6
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/samfundsvidenskabeligebacheloruddannelser/erhvervsoekonomi/erhvervsoekonomi-ha
+
+Statskundskab
+10.5 8.9 9.0 0 0 0 0 0 0 0
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/samfundsvidenskabeligebacheloruddannelser/forvaltningmv/statskundskab
+
+Fysik og ingenioervidenskab
+8.4 0 0 0 0 0 0 0 0 0
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/tekniskvidenskabeligebacheloruddannelser/civilingenioeruddannelser/fysik-og-ingeniorvidenskab
+

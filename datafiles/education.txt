@@ -14,3 +14,14 @@ Fysik og ingenioervidenskab
 8.4 0 0 0 0 0 0 0 0 0
 https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/tekniskvidenskabeligebacheloruddannelser/civilingenioeruddannelser/fysik-og-ingeniorvidenskab
 
+Markedsfoeringsoekonom
+6.0 2.0 2.0 2.0 2.0 2.0 0 2.0 0 2.0
+https://www.ug.dk/uddannelser/erhvervsakademiuddannelser/handelsogoekonomiskeuddannelser/markedsfoeringsoekonom
+
+Jura
+9.0 8.8 8.7 8.5 8.4 0 0 0 0 0
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/samfundsvidenskabeligebacheloruddannelser/forvaltningmv/jura
+
+Medicin
+10.6 10.1 10.4 9.9 0 0 0 0 0 0 
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/sundhedsvidenskabeligebacheloruddannelser/medicin

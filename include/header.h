@@ -82,6 +82,7 @@ typedef struct student_profile{
 void getStudentProfiles(student_profile profiles[],  educations education_choice_array[]);
 void getEducationData(educations education_choice[]);
 void getEducations(educations education_choice[]);
+void getStudents(student_profile profiles[], educations education_choice_array[]);
 
 // Prototyper til funktioner fra input.c
 void inputData(void);

@@ -14,6 +14,7 @@
 */
 
 // Funktion som genererer kunstige personer som har valgt en bestemt uddannelse
+/*
 void getStudentProfiles(student_profile profiles[], educations education_choice_array[]){
     
     profiles[0] = (student_profile) {
@@ -37,6 +38,7 @@ void getStudentProfiles(student_profile profiles[], educations education_choice_
         .education_choice = education_choice_array[1],
     };
 }
+*/
 
 // Funktion som generer uddannelser 
 /*
@@ -68,11 +70,40 @@ void getEducationData(educations education_choice[]){
     };   
 }*/
 
+void getStudents(student_profile profiles[], educations education_choice_array[]){
+    int i, j, k;
+    char subject[SUBJECT_NAME+1];
+    char education[60];
+
+    FILE *student_file = fopen("../datafiles/student.txt", "r");
+    if (student_file == NULL) {
+        printf("Could not open file.\n");
+        exit(EXIT_FAILURE);
+    }
+    for(i = 0; i < 3; i++){
+        fscanf(student_file, " %lf", &profiles[i].gpa);
+        for(j = 0; j < 10; j++){
+            fscanf(student_file, "%d", &profiles[i].fag_array[j]);
+        }
+        fscanf(student_file, "%s", subject);
+        profiles[i].favorite_subject = favoriteSubjectDecider(subject);
+
+        fscanf(student_file, " %[^\n]", education);
+
+        for(k = 0; k < 4; k++){
+            if(strcmp(education, education_choice_array[k].name) == 0){
+                profiles[i].education_choice = education_choice_array[k];
+            }
+        }
+    }
+    fclose(student_file);
+}
+
 void getEducations(educations education_choice[]){
     int i;
     int j;
 
-    FILE *education_file = fopen("../education.txt", "r");
+    FILE *education_file = fopen("../datafiles/education.txt", "r");
     if (education_file == NULL) {
         printf("Could not open file.\n");
         exit(EXIT_FAILURE);

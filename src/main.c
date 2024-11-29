@@ -6,17 +6,19 @@ int main(void){
     student_profile profiles [NUM_OF_STUDENTS];
     educations education_choice[MAX_EDUCATIONS];
     getEducations(education_choice);
+    getStudents(profiles, education_choice);
     
-    for(int i = 0; i < 4; i++){
-        printf("%s\n", education_choice[i].name);
+    for(int i = 0; i < 3; i++){
+        printf("%lf\n", profiles[i].gpa);
         for(int j = 0; j < 10; j++){
-            printf("%.1f ", education_choice[i].min_grade[j]);
+            printf("%d ", profiles[i].fag_array[j]);
             printf("\n");
         }
-        printf("%s\n\n", education_choice[i].link);
+        printf("%d\n\n", profiles[i].favorite_subject);
+        printf("%s\n\n", profiles[i].education_choice.name);
     }
 
-    getStudentProfiles(profiles, education_choice);
+    
     // Gemmer input fra bruger i user array
     student_profile user = addStudent();
     // Finder de elevprofiler som vores bruger minder mest om

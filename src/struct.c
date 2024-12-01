@@ -60,11 +60,3 @@ void getEducations(educations education_choice[]){
     }
     fclose(education_file);
 }
-
-
-
-
-
-
-
-  

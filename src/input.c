@@ -10,14 +10,15 @@ student_profile addStudent(void){
     // While-loekken gentager indtil brugeren indtaster et gyldigt input. 
     // Fungerer som fejlsirking mod stavefejl eller ugyldigt input. 
     while(!valid_gpa){
-        printf("Enter your grade average: ");
+        printf(BOLD"Enter your grade average: "SET_TEXT_DEFAULT);
         // Tjekker at input er gyldigt ved om det er et heltal og indenfor karakterskalaen.
         if ((scanf(" %lf", &user_profile.gpa) == 1) && user_profile.gpa >= 0 && user_profile.gpa <= 13){
             valid_gpa = 1;
         } else {
-            printf("Invalid GPA!\n");
-            clearBuffer(); // Rydder inputbufferen for at forhindre ugyldige inputs i at påvirke efterfølgende input.
+            printf(BOLD RED"Invalid GPA!\n"SET_TEXT_DEFAULT);
         }
+        // printf("Indlaeste karakter: %lf\n", user_profile.gpa);
+        clearBuffer(); // Rydder inputbufferen for at forhindre ugyldige inputs i at påvirke efterfølgende input.
     }
     // Prompter og gemmer de fag brugeren har haft i et boolean array
     subjectInput(&user_profile);
@@ -25,7 +26,7 @@ student_profile addStudent(void){
     // While-loekken gentager indtil brugeren indtaster et gyldigt input. 
     // Fungerer som fejlsirking mod stavefejl eller ugyldigt input.
     while(!valid_subject){
-        printf("What is your favorite subject? \n");
+        printf(BOLD"\nWhat is your favorite subject? \n"SET_TEXT_DEFAULT);
         scanf("%s", user_subject);
         // Sammenligner brugerens input med en predefineret liste af fag
         // for at validere om det er et gyldigt input.
@@ -35,7 +36,7 @@ student_profile addStudent(void){
             user_profile.favorite_subject = subjectValidation;
             valid_subject = 1;
         } else {
-            printf("Invalid subject. Type the subjects name in danish.\n");
+            printf(BOLD RED"Invalid subject. Type the subjects name in danish.\n"SET_TEXT_DEFAULT);
         }
     }
     return user_profile;
@@ -59,7 +60,7 @@ void subjectInput(student_profile *user_profile){
     subjects_print[8] = "Virksomhedsoekonomi";
     subjects_print[9] = "Afsaetning";
 
-    printf("Type the level of which you completed the subject (A, B or C. 0 if not completed).");
+    printf(BOLD"Type the level of which you completed the subject (A, B or C. 0 if not completed)."SET_TEXT_DEFAULT);
     
     for(i = 0; i < 10; i++){
         valid_level_input = 0; // Nulstilles for at gentage loekken ved hver iteration.
@@ -77,7 +78,7 @@ void subjectInput(student_profile *user_profile){
                 user_profile->fag_array[i] = temp[0];
                 valid_level_input = 1;
             } else{
-                printf("Invalid Input!\n");
+                printf(BOLD RED "Invalid Input!\n" SET_TEXT_DEFAULT);
             }  
             clearBuffer(); // Rydder inputbufferen for at forhindre ugyldige inputs i at paavirke efterfoelgende input.
         } 

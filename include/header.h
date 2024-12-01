@@ -1,6 +1,13 @@
 #ifndef HEADER_H
 #define HEADER_H
 
+// Tjekker for Windows-system og inkluderer henholdsvis windows.h eller unistd.h bibliotek.
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif
+
 // Libraries
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,6 +24,18 @@
 #define MAX_PROCESSED_DATA 12
 #define MAX_CITY 10
 #define MAX_EDUCATIONS 7
+
+// ANSI Escape Sequences er koder der bruges til at manipulere terminaloutput.
+// De er indbygget i terminalen, og det er terminalen der fortolker og implementerer dem når de printes.
+// ANSI-sekvenser:
+#define SET_TEXT_DEFAULT "\033[0m"
+#define RED     "\033[0;31m"
+#define GREEN   "\033[0;32m"
+#define YELLOW  "\033[0;33m"
+#define BOLD    "\033[1m"
+#define UNBOLD  "\033[22m"
+#define UNDERLINE "\033[4m"
+#define UNUNDERLINE "\033[24m"
 
 // Enumeration typer til fagene
 typedef enum{
@@ -96,14 +115,12 @@ double *preprocessStudentStructs(student_profile student);
 student_profile kNN(student_profile user, student_profile profiles[]);
 double findMinimumGrade(double min_grade[], int size);
 
-//Output funktioner
-void printEducation(student_profile student);
+// Prototyper til funktioner fra output.c
+void printEducation(student_profile student, student_profile user);
+void delay(int milliseconds);
 
-//Main funktion
+// Prototyper til funktioner fra main.c
 int main(void);
-
-
-
 
 
 #endif 

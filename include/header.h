@@ -81,6 +81,7 @@ typedef struct educations{
 typedef struct student_profile{
     double gpa;
     int fag_array[10];
+    int subject_rating[10];
     int favorite_subject;
     educations education_choice;
 } student_profile;
@@ -106,6 +107,7 @@ void inputData(void);
 void subjectInput(student_profile *user_profile);
 student_profile addStudent(void);
 int favoriteSubjectDecider(char* user_subject);
+void subjectRating(student_profile *user_profile);
 void clearBuffer();
 void toUpperCase (char str[]);
 

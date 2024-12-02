@@ -22,7 +22,7 @@ student_profile addStudent(void){
     }
     // Prompter og gemmer de fag brugeren har haft i et boolean array
     subjectInput(&user_profile);
-    
+
     // While-loekken gentager indtil brugeren indtaster et gyldigt input. 
     // Fungerer som fejlsirking mod stavefejl eller ugyldigt input.
     while(!valid_subject){
@@ -39,7 +39,7 @@ student_profile addStudent(void){
             printf(BOLD RED"Invalid subject. Type the subjects name in danish.\n"SET_TEXT_DEFAULT);
         }
     }
-    return user_profile;
+    subjectRating(&user_profile);
 }  
 
 //Spoerger efter hvert fag og svaret modtages i 1 eller 0 for at goere det nemmere i fremtiden. kan altid aendres.
@@ -85,6 +85,43 @@ void subjectInput(student_profile *user_profile){
     }
 }
 
+void subjectRating(student_profile *user_profile){
+    int i;
+    char *subjects_print[10];
+    int valid_level_input = 0;
+    int temp;
+
+    subjects_print[0] = "Matematik";
+    subjects_print[1] = "Fysik";
+    subjects_print[2] = "Kemi";
+    subjects_print[3] = "Biologi";
+    subjects_print[4] = "Dansk";
+    subjects_print[5] = "Engelsk";
+    subjects_print[6] = "Historie";
+    subjects_print[7] = "Samfundsfag";
+    subjects_print[8] = "Virksomhedsoekonomi";
+    subjects_print[9] = "Afsaetning";
+
+    printf(BOLD"\nRate 1-5 on how you liked your subjects. 0 if you dont have the subjects\n" SET_TEXT_DEFAULT);
+
+    for (i = 0; i < 10; i++){
+        valid_level_input = 0;
+
+        while(!valid_level_input){
+            printf("\n%s: ", subjects_print[i]);
+            scanf("%d", &temp);
+
+            if (temp >= 0 && temp <= 5){
+                user_profile->subject_rating[i] = temp;
+                valid_level_input = 1;
+            } else {
+                printf(BOLD RED"Invalid Input!\n"SET_TEXT_DEFAULT);
+            }
+            clearBuffer();
+        }
+    }
+}
+
 int favoriteSubjectDecider(char* user_subject){ 
     // Konverterer user_subject til store bogstaver foer sammenligning, for at fejlsikre mod casing-forskelle.
     // Goeres ved brug af toupper() funktionen fra ctype.h biblioteket.
@@ -116,6 +153,7 @@ int favoriteSubjectDecider(char* user_subject){
         return -1; // Ukendt fag
     }
 }
+
 
 // Rydder inputbufferen ved at laese og kassere alle tegn indtil ('\n') som markerer at inputbufferen er tom.
 // Dette sikrer, at eventuelle resterende tegn fra forkerte inputs ikke paavirker det efterfoelgende input.

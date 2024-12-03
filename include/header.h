@@ -14,7 +14,7 @@
 #include <math.h>
 #include <string.h>
 #include <ctype.h>
-
+#include "../testing/CuTest.h"
 // Symbolske konstanter 
 #define NAME_LENGTH 30
 #define SUBJECT_NAME 40
@@ -97,6 +97,8 @@ typedef struct student_profile{
 //Her indsaettes prototyper af ALLE funktioner der laves i seperate dokumenter.
 // - Det er ikke noedvendigt at indsaette prototyperne i en bestemt raekkefoelge. Men organiser dem saa man kan finde rundt i dem.
 
+// Prototyper til testing
+CuSuite *test_manhattan_GetSuite();
 
 // Prototyper til funktioner fra struct.c
 void getEducations(educations education_choice[]);
@@ -123,6 +125,8 @@ void delay(int milliseconds);
 
 // Prototyper til funktioner fra main.c
 int main(void);
+
+
 
 
 #endif 

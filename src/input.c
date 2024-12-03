@@ -77,7 +77,6 @@ void subjectInput(student_profile *user_profile){
             // Tjekker at input enten er A, B, C eller 0 ved brug af strcmp() funktionen fra string.h biblioteket.
             if (strcmp(temp, "A") == 0 || strcmp(temp, "B") == 0 || strcmp(temp, "C") == 0 || strcmp(temp, "0") == 0){
                 // Tildeler det første char fra temp til faget, som kun kan vaere enten A, B, C eller 0, hvis ovenstaaende if-tjek er bestaaet.
-                user_profile->fag_array[i] = temp[0];
                 switch(temp[0]){
                     case 'A': 
                         user_profile->fag_array[i] = A;
@@ -121,24 +120,31 @@ void subjectRating(student_profile *user_profile){
     subjects_print[8] = "Virksomhedsoekonomi";
     subjects_print[9] = "Afsaetning";
 
-    printf(BOLD"\nRate 1-5 on how you liked your subjects. 0 if you dont have the subjects\n" SET_TEXT_DEFAULT);
+    printf(BOLD"\nRate 1-5 on how you liked your subjects.\n" SET_TEXT_DEFAULT);
 
-    for (i = 0; i < 10; i++){
+    for (i = 0; i < NUM_OF_SUBJECTS; i++){
         valid_level_input = 0;
 
         while(!valid_level_input){
-            printf("\n%s: ", subjects_print[i]);
-            scanf("%d", &temp);
-
-            if (temp >= 0 && temp <= 5){
-                user_profile->subject_rating[i] = temp;
-                valid_level_input = 1;
-            } else {
-                printf(BOLD RED"Invalid Input!\n"SET_TEXT_DEFAULT);
+            
+            if(user_profile->fag_array[i] != 0){
+                printf("\n%s: ", subjects_print[i]);
+                scanf("%d", &temp);
+                if (temp >= 1 && temp <= 5){
+                    user_profile->subject_rating[i] = temp;
+                    valid_level_input = 1;
+                } else {
+                    printf(BOLD RED"Invalid Input!\n"SET_TEXT_DEFAULT);
+                }
+                clearBuffer();
             }
-            clearBuffer();
+            else{
+                user_profile->subject_rating[i] = 0;
+                valid_level_input = 1;
+            }
         }
     }
+
 }
 
 int favoriteSubjectDecider(char* user_subject){ 

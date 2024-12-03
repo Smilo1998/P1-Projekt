@@ -21,7 +21,7 @@
 #define MAX_DATA 250
 #define NUM_OF_STUDENTS 6
 #define NUM_OF_SUBJECTS 10
-#define MAX_PROCESSED_DATA 12
+#define MAX_PROCESSED_DATA 22
 #define MAX_CITY 10
 #define MAX_EDUCATIONS 7
 
@@ -80,8 +80,8 @@ typedef struct educations{
 // Struct til elevprofiler
 typedef struct student_profile{
     double gpa;
-    int fag_array[10];
-    int subject_rating[10];
+    int fag_array[NUM_OF_SUBJECTS];
+    int subject_rating[NUM_OF_SUBJECTS];
     int favorite_subject;
     educations education_choice;
 } student_profile;

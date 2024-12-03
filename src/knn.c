@@ -18,6 +18,7 @@ student_profile kNN(student_profile user, student_profile profiles[]){
             double *processed_data_profile = preprocessStudentStructs(profiles[i]);
             distance = manhattanDistance(processed_user, processed_data_profile);
             // Hvis distancen mellem user og profile er mindre end nuværende minimum bliver distance det nye minimum og index gemmes
+            printf("DISTANCE TIL PERSON %d: %lf\n", distance, i);
             if (distance <= minimum){
                 minimum = distance;
                 index = i;
@@ -56,12 +57,19 @@ double *preprocessStudentStructs(student_profile student){
         printf("Memory allocation error in preprocessStudentStructs");
         exit(EXIT_FAILURE);
     }
- 
+    
     for(i = 0; i < NUM_OF_SUBJECTS; i++){
         processed_student[i] = (double)student.fag_array[i];
     }
-    processed_student[i++] = student.gpa;
-    processed_student[i++] = student.favorite_subject;
+    for(int j = 0; j < NUM_OF_SUBJECTS; j++){
+        processed_student[i] = (double)student.subject_rating[j];
+        i++;
+    }
+
+    processed_student[i] = student.gpa;
+    i++;
+
+    processed_student[i] = (double)student.favorite_subject;
 
     return processed_student;
 }

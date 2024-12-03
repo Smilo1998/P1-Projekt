@@ -17,7 +17,7 @@ student_profile addStudent(void){
         } else {
             printf(BOLD RED"Invalid GPA!\n"SET_TEXT_DEFAULT);
         }
-        // printf("Indlaeste karakter: %lf\n", user_profile.gpa);
+        //printf("Indlaeste karakter: %lf\n", user_profile.gpa);
         clearBuffer(); // Rydder inputbufferen for at forhindre ugyldige inputs i at påvirke efterfølgende input.
     }
     // Prompter og gemmer de fag brugeren har haft i et boolean array
@@ -40,6 +40,8 @@ student_profile addStudent(void){
         }
     }
     subjectRating(&user_profile);
+
+    return user_profile;
 }  
 
 //Spoerger efter hvert fag og svaret modtages i 1 eller 0 for at goere det nemmere i fremtiden. kan altid aendres.
@@ -76,6 +78,23 @@ void subjectInput(student_profile *user_profile){
             if (strcmp(temp, "A") == 0 || strcmp(temp, "B") == 0 || strcmp(temp, "C") == 0 || strcmp(temp, "0") == 0){
                 // Tildeler det første char fra temp til faget, som kun kan vaere enten A, B, C eller 0, hvis ovenstaaende if-tjek er bestaaet.
                 user_profile->fag_array[i] = temp[0];
+                switch(temp[0]){
+                    case 'A': 
+                        user_profile->fag_array[i] = A;
+                        break;
+                    case 'B': 
+                        user_profile->fag_array[i] = B;
+                        break;
+                    case 'C': 
+                        user_profile->fag_array[i] = C;
+                        break;
+                    case '0': 
+                        user_profile->fag_array[i] = 0;
+                        break;
+                    default:
+                        printf("fejl input fag niveau");
+                        exit(EXIT_FAILURE);
+                }
                 valid_level_input = 1;
             } else{
                 printf(BOLD RED "Invalid Input!\n" SET_TEXT_DEFAULT);

@@ -14,7 +14,7 @@
 */
 
 void getStudents(student_profile profiles[], educations education_choice_array[]){
-    int i, j, k;
+    int i, j, k, q;
     char subject[SUBJECT_NAME+1];
     char education[60];
 
@@ -28,6 +28,10 @@ void getStudents(student_profile profiles[], educations education_choice_array[]
         for(j = 0; j < NUM_OF_SUBJECTS; j++){
             fscanf(student_file, "%d", &profiles[i].fag_array[j]);
         }
+        for(q = 0; q < NUM_OF_SUBJECTS; q++){
+            fscanf(student_file, "%d", &profiles[i].subject_rating[q]);
+        }
+
         fscanf(student_file, "%s", subject);
         profiles[i].favorite_subject = favoriteSubjectDecider(subject);
 

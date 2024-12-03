@@ -18,7 +18,7 @@ student_profile kNN(student_profile user, student_profile profiles[]){
             double *processed_data_profile = preprocessStudentStructs(profiles[i]);
             distance = manhattanDistance(processed_user, processed_data_profile);
             // Hvis distancen mellem user og profile er mindre end nuværende minimum bliver distance det nye minimum og index gemmes
-            printf("DISTANCE TIL PERSON %d: %lf\n", distance, i);
+            printf("DISTANCE TIL PERSON %d: %lf\n", i, distance);
             if (distance <= minimum){
                 minimum = distance;
                 index = i;

@@ -14,7 +14,7 @@
 */
 
 void getStudents(student_profile profiles[], educations education_choice_array[]){
-    int i, j, k, q;
+    int i, j, k, q, g;
     char subject[SUBJECT_NAME+1];
     char education[60];
 
@@ -30,6 +30,9 @@ void getStudents(student_profile profiles[], educations education_choice_array[]
         }
         for(q = 0; q < NUM_OF_SUBJECTS; q++){
             fscanf(student_file, "%d", &profiles[i].subject_rating[q]);
+        }
+        for(g = 0; g < NUM_OF_STATEMENTS; g++){
+            fscanf(student_file, "%d", &profiles[i].subject_rating[g]);
         }
 
         fscanf(student_file, "%s", subject);

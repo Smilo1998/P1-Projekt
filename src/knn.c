@@ -65,6 +65,10 @@ double *preprocessStudentStructs(student_profile student){
         processed_student[i] = (double)student.subject_rating[j];
         i++;
     }
+    for(int k = 0; k < NUM_OF_STATEMENTS; k++){
+        processed_student[i] = (double)student.statement_rating[k];
+        i++;
+    }
 
     processed_student[i] = student.gpa;
     i++;

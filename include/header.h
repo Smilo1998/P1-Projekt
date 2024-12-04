@@ -26,7 +26,7 @@
 #define MAX_CITY 10
 #define MAX_EDUCATIONS 7
 #define AMOUNT_OF_NEIGHBOURS 3
-#define INFINITY 999999
+#define INFINITY_MAX 999999
 
 // ANSI Escape Sequences er koder der bruges til at manipulere terminaloutput.
 // De er indbygget i terminalen, og det er terminalen der fortolker og implementerer dem når de printes.

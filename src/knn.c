@@ -3,8 +3,8 @@
 // K-Nearest-Neighbours Algoritme finder den elev som brugeren er taettest paa
 void kNN(student_profile user, student_profile profiles[], student_profile neighbours[]){
     int i;
-    double distance = INFINITY;
-    double minimum[3] = {INFINITY, INFINITY, INFINITY};
+    double distance = INFINITY_MAX;
+    double minimum[3] = {INFINITY_MAX, INFINITY_MAX, INFINITY_MAX};
 
     // Omdanner user student profile til et array for at klargoere til KNN
     double *processed_user = preprocessStudentStructs(user);
@@ -13,7 +13,7 @@ void kNN(student_profile user, student_profile profiles[], student_profile neigh
         double minimum_grade = findMinimumGrade(profiles[i].education_choice.min_grade, MAX_CITY); // Finder den mindste karakter som ikke er 0 i min_grade array
 
         if (user.gpa >= (minimum_grade - 0.5)){ 
-            printf("Hello");
+            // printf("Hello\n");
             // Profiles structen gemmes i et double array
             double *processed_data_profile = preprocessStudentStructs(profiles[i]);
             distance = manhattanDistance(processed_user, processed_data_profile);
@@ -60,14 +60,14 @@ double manhattanDistance(const double array_user[], const double array_profile[]
     double result = 0;
     // Udregner summen af forskellen mellem de to arrays
     for(i = 0; i < MAX_PROCESSED_DATA; i++){
-        result += fabs((array_user[i]-array_profile[i])); // Summerer 
+        result += fabs((array_user[i]-array_profile[i])); // Summerer
     }
     return result;
 }
 
 // Funktion som omdanner structs til arrays
 double *preprocessStudentStructs(student_profile student){
-    int i;
+    int i = 0;
     double *processed_student = malloc(sizeof(double) * MAX_PROCESSED_DATA); // TILFØJ FREE SENERE I PROGRAMMET;
     if(processed_student == NULL){
         printf("Memory allocation error in preprocessStudentStructs");
@@ -77,10 +77,12 @@ double *preprocessStudentStructs(student_profile student){
     for(i = 0; i < NUM_OF_SUBJECTS; i++){
         processed_student[i] = (double)student.fag_array[i];
     }
-    for(int j = 0; j < NUM_OF_SUBJECTS; j++){
-        processed_student[i] = (double)student.subject_rating[j];
+
+    for(int q = 0; q < NUM_OF_SUBJECTS; q++){
+        processed_student[i] = (double)student.subject_rating[q];
         i++;
     }
+
     for(int k = 0; k < NUM_OF_STATEMENTS; k++){
         processed_student[i] = (double)student.statement_rating[k];
         i++;
@@ -96,7 +98,7 @@ double *preprocessStudentStructs(student_profile student){
 
 double findMinimumGrade(double min_grade[], int size){
     int i;
-    double minimum = INFINITY;
+    double minimum = INFINITY_MAX;
     
     for(i = 0; i < size; i++){
         if(min_grade[i] < minimum && min_grade[i] != 0){

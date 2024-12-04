@@ -1,11 +1,10 @@
 #include "../include/header.h"
 
 // K-Nearest-Neighbours Algoritme finder den elev som brugeren er taettest paa
-student_profile kNN(student_profile user, student_profile profiles[]){
+void kNN(student_profile user, student_profile profiles[], student_profile neighbours[]){
     int i;
-    int index = -1;
-    double distance = 1000000;
-    double minimum = 999999;
+    double distance = INFINITY;
+    double minimum[3] = {INFINITY, INFINITY, INFINITY};
 
     // Omdanner user student profile til et array for at klargoere til KNN
     double *processed_user = preprocessStudentStructs(user);
@@ -14,14 +13,38 @@ student_profile kNN(student_profile user, student_profile profiles[]){
         double minimum_grade = findMinimumGrade(profiles[i].education_choice.min_grade, MAX_CITY); // Finder den mindste karakter som ikke er 0 i min_grade array
 
         if (user.gpa >= (minimum_grade - 0.5)){ 
+            printf("Hello");
             // Profiles structen gemmes i et double array
             double *processed_data_profile = preprocessStudentStructs(profiles[i]);
             distance = manhattanDistance(processed_user, processed_data_profile);
             // Hvis distancen mellem user og profile er mindre end nuværende minimum bliver distance det nye minimum og index gemmes
-            printf("DISTANCE TIL PERSON %d: %lf\n", i, distance);
-            if (distance <= minimum){
-                minimum = distance;
-                index = i;
+            printf("DISTANCE TIL PERSON %lf: %lf\n", profiles[i].gpa, distance);
+            if (distance < minimum[0]){
+                //Ryk profilens placering ned i neighbours arrayet. 
+                minimum[2] = minimum[1];
+                neighbours[2] = neighbours[1];
+
+                //sæt anden tætteste profil
+                minimum[1] = minimum[0];
+                neighbours[1] = neighbours[0];
+                
+                //Ny tætteste profil
+                minimum[0] = distance;
+                neighbours[0] = profiles[i];
+            }
+            else if (distance < minimum[1]){
+                //sæt tredje tætteste profil
+                minimum[2] = minimum[1];
+                neighbours[2] = neighbours[1];
+
+                //Ny anden tætteste profil
+                minimum[1] = distance;
+                neighbours[1] = profiles[i];
+            }
+            else if (distance < minimum[2]){
+                //ny tredje tætteste profil
+                minimum[2] = distance;
+                neighbours[2] = profiles[i];
             }
         // Fjerner dynamisk allokering for profile
         free(processed_data_profile); 
@@ -29,13 +52,6 @@ student_profile kNN(student_profile user, student_profile profiles[]){
     }
     // Fjerner dynamisk allokering for user
     free(processed_user);
-    // Hvis ingen bruger findes fastholdes index på -1 og programmet finder altså ikke en uddannelse der matcher personen
-    if (index == -1) {
-        printf("No suitable profile found.\n");
-        exit(EXIT_FAILURE);
-    }
-    // Returner den profil som passer bedst med user
-    return profiles[index];
 }
 
 // Funktion der beregner Manhattan Distance
@@ -76,8 +92,8 @@ double *preprocessStudentStructs(student_profile student){
 
 double findMinimumGrade(double min_grade[], int size){
     int i;
-    double minimum = min_grade[0];
-
+    double minimum = INFINITY;
+    
     for(i = 0; i < size; i++){
         if(min_grade[i] < minimum && min_grade[i] != 0){
             minimum = min_grade[i];

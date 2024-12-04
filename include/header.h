@@ -19,12 +19,14 @@
 #define NAME_LENGTH 30
 #define SUBJECT_NAME 40
 #define MAX_DATA 250
-#define NUM_OF_STUDENTS 6
+#define NUM_OF_STUDENTS 7
 #define NUM_OF_SUBJECTS 10
 #define NUM_OF_STATEMENTS 5
 #define MAX_PROCESSED_DATA 27
 #define MAX_CITY 10
 #define MAX_EDUCATIONS 7
+#define AMOUNT_OF_NEIGHBOURS 3
+#define INFINITY 999999
 
 // ANSI Escape Sequences er koder der bruges til at manipulere terminaloutput.
 // De er indbygget i terminalen, og det er terminalen der fortolker og implementerer dem når de printes.
@@ -119,7 +121,7 @@ void toUpperCase (char str[]);
 // Prototyper til funktioner fra knn.c
 double manhattanDistance(const double array_user[], const double array_profile[]);
 double *preprocessStudentStructs(student_profile student);
-student_profile kNN(student_profile user, student_profile profiles[]);
+void kNN(student_profile user, student_profile profiles[], student_profile neighbours[]);
 double findMinimumGrade(double min_grade[], int size);
 
 // Prototyper til funktioner fra output.c
@@ -128,6 +130,7 @@ void delay(int milliseconds);
 
 // Prototyper til funktioner fra main.c
 int main(void);
+void runProgram(void);
 
 
 

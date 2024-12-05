@@ -3,8 +3,8 @@
 // K-Nearest-Neighbours Algoritme finder den elev som brugeren er taettest paa
 void kNN(student_profile user, student_profile profiles[], student_profile neighbours[]){
     int i;
-    double distance = INFINITY_MAX;
-    double minimum[3] = {INFINITY_MAX, INFINITY_MAX, INFINITY_MAX};
+    double distance = INFINITY;
+    double minimum[3] = {INFINITY, INFINITY, INFINITY};
 
     // Omdanner user student profile til et array for at klargoere til KNN
     double *processed_user = preprocessStudentStructs(user);
@@ -98,7 +98,7 @@ double *preprocessStudentStructs(student_profile student){
 
 double findMinimumGrade(double min_grade[], int size){
     int i;
-    double minimum = INFINITY_MAX;
+    double minimum = INFINITY;
     
     for(i = 0; i < size; i++){
         if(min_grade[i] < minimum && min_grade[i] != 0){

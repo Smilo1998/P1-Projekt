@@ -23,9 +23,10 @@ void runProgram(void){
     //Løkke der lader programmet køre flere gange. Hvis operation variablen bliver -1 stopper programmet helt;
     do{
         welcomeMessage(&operation);
-            if(operation == -1)
+            if(operation == -1){
                 printf("\nThank you for trying our program!\n\n");
                 break;
+            }
         // Gemmer input fra bruger i user array
         student_profile user = addStudent();
         kNN(user, profiles, neighbours);

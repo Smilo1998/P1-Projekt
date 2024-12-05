@@ -36,7 +36,7 @@ student_profile addStudent(void){
             user_profile.favorite_subject = subjectValidation;
             valid_subject = 1;
         } else {
-            printf(BOLD RED"Invalid subject. Type the subjects name in danish.\n"SET_TEXT_DEFAULT);
+            printf(RED BOLD"Invalid subject. Type the subjects name in danish.\n"SET_TEXT_DEFAULT);
         }
     }
     subjectRating(&user_profile);
@@ -96,7 +96,7 @@ void subjectInput(student_profile *user_profile){
                 }
                 valid_level_input = 1;
             } else{
-                printf(BOLD RED "Invalid Input!\n" SET_TEXT_DEFAULT);
+                printf(RED BOLD"Invalid Input!\n" SET_TEXT_DEFAULT);
             }  
             clearBuffer(); // Rydder inputbufferen for at forhindre ugyldige inputs i at paavirke efterfoelgende input.
         } 
@@ -134,7 +134,7 @@ void subjectRating(student_profile *user_profile){
                     user_profile->subject_rating[i] = temp;
                     valid_level_input = 1;
                 } else {
-                    printf(BOLD RED"Invalid Input!\n"SET_TEXT_DEFAULT);
+                    printf(RED BOLD"Invalid Input!\n"SET_TEXT_DEFAULT);
                 }
                 clearBuffer();
             }

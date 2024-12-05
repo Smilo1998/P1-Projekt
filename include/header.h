@@ -25,7 +25,6 @@
 #define MAX_CITY 10
 #define MAX_EDUCATIONS 7
 #define AMOUNT_OF_NEIGHBOURS 3
-#define INFINITY 999999
 
 // ANSI Escape Sequences er koder der bruges til at manipulere terminaloutput.
 // De er indbygget i terminalen, og det er terminalen der fortolker og implementerer dem når de printes.
@@ -128,6 +127,8 @@ void delay(int milliseconds);
 // Prototyper til funktioner fra main.c
 int main(void);
 void runProgram(void);
+void welcomeMessage(int *operation);
+int checkInputMain(void);
 
 
 

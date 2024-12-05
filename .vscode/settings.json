@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "header.h": "c",
-        "ctype.h": "c"
+        "ctype.h": "c",
+        "cutest.h": "c",
+        "string.h": "c"
     }
 }

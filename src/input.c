@@ -4,28 +4,28 @@
 student_profile addStudent(void){
     student_profile user_profile;
     char user_subject[SUBJECT_NAME];
-    int valid_subject = 0;
-    int valid_gpa = 0;
+    int valid_subject_input = 0;
+    int valid_gpa_input = 0;
 
     // While-loekken gentager indtil brugeren indtaster et gyldigt input. 
     // Fungerer som fejlsirking mod stavefejl eller ugyldigt input. 
-    while(!valid_gpa){
+    while(!valid_gpa_input){
         printf(BOLD"Enter your grade average: "SET_TEXT_DEFAULT);
         // Tjekker at input er gyldigt ved om det er et heltal og indenfor karakterskalaen.
         if ((scanf(" %lf", &user_profile.gpa) == 1) && user_profile.gpa >= 0 && user_profile.gpa <= 13){
-            valid_gpa = 1;
+            valid_gpa_input = 1;
         } else {
             printf(BOLD RED"Invalid GPA!\n"SET_TEXT_DEFAULT);
         }
         //printf("Indlaeste karakter: %lf\n", user_profile.gpa);
         clearBuffer(); // Rydder inputbufferen for at forhindre ugyldige inputs i at påvirke efterfølgende input.
     }
-    // Prompter og gemmer de fag brugeren har haft i et boolean array
+    // Prompter og gemmer de fag brugeren har haft i et array
     subjectInput(&user_profile);
 
     // While-loekken gentager indtil brugeren indtaster et gyldigt input. 
     // Fungerer som fejlsirking mod stavefejl eller ugyldigt input.
-    while(!valid_subject){
+    while(!valid_subject_input){
         printf(BOLD"\nWhat is your favorite subject? \n"SET_TEXT_DEFAULT);
         scanf("%s", user_subject);
         // Sammenligner brugerens input med en predefineret liste af fag
@@ -34,17 +34,21 @@ student_profile addStudent(void){
         
         if (subjectValidation != -1){
             user_profile.favorite_subject = subjectValidation;
-            valid_subject = 1;
+            valid_subject_input = 1;
         } else {
             printf(RED BOLD"Invalid subject. Type the subjects name in danish.\n"SET_TEXT_DEFAULT);
         }
     }
     subjectRating(&user_profile);
 
+    statementRating(&user_profile);
+
     return user_profile;
 }  
 
-//Spoerger efter hvert fag og svaret modtages i 1 eller 0 for at goere det nemmere i fremtiden. kan altid aendres.
+// Spoerger efter hvert fag og svaret modtages i A, B, C eller 0. 
+// Derefter omdannes det henholdvis til enum-vaerdierne 1, 2, 3 eller 0 og gemmes i brugerens fag_array
+
 void subjectInput(student_profile *user_profile){
     int i;
     char* subjects_print[10];
@@ -62,7 +66,7 @@ void subjectInput(student_profile *user_profile){
     subjects_print[8] = "Virksomhedsoekonomi";
     subjects_print[9] = "Afsaetning";
 
-    printf(BOLD"Type the level of which you completed the subject (A, B or C. 0 if not completed)."SET_TEXT_DEFAULT);
+    printf(BOLD"\nType the level at which you completed the subject (A, B or C. 0 if not completed)."SET_TEXT_DEFAULT);
     
     for(i = 0; i < 10; i++){
         valid_level_input = 0; // Nulstilles for at gentage loekken ved hver iteration.
@@ -76,7 +80,7 @@ void subjectInput(student_profile *user_profile){
             toUpperCase(temp);
             // Tjekker at input enten er A, B, C eller 0 ved brug af strcmp() funktionen fra string.h biblioteket.
             if (strcmp(temp, "A") == 0 || strcmp(temp, "B") == 0 || strcmp(temp, "C") == 0 || strcmp(temp, "0") == 0){
-                // Tildeler det første char fra temp til faget, som kun kan vaere enten A, B, C eller 0, hvis ovenstaaende if-tjek er bestaaet.
+                // Tildeler det foerste char fra temp til faget, som kun kan vaere enten A, B, C eller 0, hvis ovenstaaende if-tjek er bestaaet.
                 switch(temp[0]){
                     case 'A': 
                         user_profile->fag_array[i] = A;
@@ -106,7 +110,7 @@ void subjectInput(student_profile *user_profile){
 void subjectRating(student_profile *user_profile){
     int i;
     char *subjects_print[10];
-    int valid_level_input = 0;
+    int valid_subject_input_rating_input = 0;
     int temp;
 
     subjects_print[0] = "Matematik";
@@ -123,16 +127,15 @@ void subjectRating(student_profile *user_profile){
     printf(BOLD"\nRate 1-5 on how you liked your subjects.\n" SET_TEXT_DEFAULT);
 
     for (i = 0; i < NUM_OF_SUBJECTS; i++){
-        valid_level_input = 0;
+        valid_subject_input_rating_input = 0;
 
-        while(!valid_level_input){
+        while(!valid_subject_input_rating_input){
             
             if(user_profile->fag_array[i] != 0){
                 printf("\n%s: ", subjects_print[i]);
-                scanf("%d", &temp);
-                if (temp >= 1 && temp <= 5){
+                if ((scanf("%d", &temp) == 1) && temp >= 1 && temp <= 5){
                     user_profile->subject_rating[i] = temp;
-                    valid_level_input = 1;
+                    valid_subject_input_rating_input = 1;
                 } else {
                     printf(RED BOLD"Invalid Input!\n"SET_TEXT_DEFAULT);
                 }
@@ -140,11 +143,52 @@ void subjectRating(student_profile *user_profile){
             }
             else{
                 user_profile->subject_rating[i] = 0;
-                valid_level_input = 1;
+                valid_subject_input_rating_input = 1;
             }
         }
     }
+}
 
+void statementRating(student_profile *user_profile){
+    int i, j;
+    char *statement_print[NUM_OF_STATEMENTS];
+    int valid_statement_rating_input = 0;
+    int temp;
+    int already_rated[6] = {0, 0, 0, 0, 0, 0};
+
+    statement_print[0] = "Jeg prioriterer en hoej loen";
+    statement_print[1] = "Jeg prioriterer arbejde med mennesker";
+    statement_print[2] = "Jeg prioriterer fleksible arbejdstider";
+    statement_print[3] = "Jeg prioriterer gode beskaeftigelsesmuligheder";
+    statement_print[4] = "Jeg prioriterer passion for mit arbejde";
+
+    printf(BOLD"\nAssign a priority-rating between 1-5 to each of the following statements, in order of importance to you:\n"SET_TEXT_DEFAULT);
+    for (j = 0; j < NUM_OF_STATEMENTS; j++){
+        printf("\n  %s",statement_print[j]);
+    }
+    printf(BOLD "\n\nYou can only assign a rating ONCE, in order to prioritze.\n" SET_TEXT_DEFAULT);
+
+    for (i = 0; i < NUM_OF_STATEMENTS; i++){
+        valid_statement_rating_input = 0;
+
+        while(!valid_statement_rating_input){
+            
+            printf("\n%s: ", statement_print[i]);
+
+            if ((scanf("%d", &temp) == 1) && temp >= 1 && temp <= NUM_OF_STATEMENTS){
+                if (already_rated[temp] == 0){
+                    user_profile->statement_rating[i] = temp;
+                    already_rated[temp]++;
+                    valid_statement_rating_input = 1;  
+                 } else {
+                    printf(BOLD RED"You have already assigned that rating!\n"SET_TEXT_DEFAULT);
+                 }
+            } else {
+                printf(BOLD RED"Invalid Input! You must assign a rating between 1-5!\n"SET_TEXT_DEFAULT);
+            }
+            clearBuffer();
+        }
+    }
 }
 
 int favoriteSubjectDecider(char* user_subject){ 

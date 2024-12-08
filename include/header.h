@@ -22,6 +22,7 @@
 #define NUM_OF_STUDENTS 7
 #define NUM_OF_SUBJECTS 10
 #define NUM_OF_STATEMENTS 5
+#define NUM_OF_CATEGORIES 4
 #define MAX_PROCESSED_DATA 27
 #define MAX_CITY 10
 #define MAX_EDUCATIONS 7
@@ -85,6 +86,7 @@ typedef struct student_profile{
     int fag_array[NUM_OF_SUBJECTS];
     int subject_rating[NUM_OF_SUBJECTS];
     int statement_rating[NUM_OF_STATEMENTS];
+    int category_rating[NUM_OF_CATEGORIES];
     int favorite_subject;
     educations education_choice;
 } student_profile;
@@ -114,6 +116,7 @@ student_profile addStudent(void);
 int favoriteSubjectDecider(char* user_subject);
 void subjectRating(student_profile *user_profile);
 void statementRating(student_profile *user_profile);
+void categoryRating(student_profile *user_profile);
 void clearBuffer();
 void toUpperCase (char str[]);
 

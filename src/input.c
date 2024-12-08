@@ -43,6 +43,8 @@ student_profile addStudent(void){
 
     statementRating(&user_profile);
 
+    categoryRating(&user_profile);
+
     return user_profile;
 }  
 
@@ -191,6 +193,44 @@ void statementRating(student_profile *user_profile){
     }
 }
 
+void categoryRating(student_profile *user_profile){
+    int i, j;
+    char *category_print[NUM_OF_CATEGORIES] = {"Business", "Videnskab og Teknologi", "Sundhed og Uddannelse", "Samfund og Lov"};
+    int temp;
+    int already_rated[NUM_OF_CATEGORIES + 1] = {0, 0, 0, 0};
+
+    printf(BOLD"\n Assign a priority between 1-4 to each of the following categories, in order of importance to you\n" SET_TEXT_DEFAULT);
+    for (j = 0; j < NUM_OF_CATEGORIES; j++){
+        printf("\n %s", category_print[j]);
+    }
+    printf(BOLD "\n\nYou can only assign a rating ONCE, in order to prioritze.\n" SET_TEXT_DEFAULT);
+
+    for (i = 0; i < NUM_OF_CATEGORIES; i++){
+        int valid_category_rating_input = 0;
+
+        while(!valid_category_rating_input){
+            printf("\n%s: ", category_print[i]);
+
+            if((scanf("%d", &temp) == 1) && temp >= 1 && temp <= NUM_OF_CATEGORIES){
+                if(already_rated[temp - 1] == 0){
+                    user_profile->category_rating[i] = temp;
+                    already_rated[temp - 1]++;
+                    valid_category_rating_input = 1;
+                }else{
+                    printf(BOLD RED"You have already assigned that rating!\n"SET_TEXT_DEFAULT);
+            }     
+            } else {
+                printf(BOLD RED"Invalid Input! You must assign a rating between 1-4\n"SET_TEXT_DEFAULT);
+            }
+            clearBuffer();
+
+        }
+    }
+}
+    
+
+
+
 int favoriteSubjectDecider(char* user_subject){ 
     // Konverterer user_subject til store bogstaver foer sammenligning, for at fejlsikre mod casing-forskelle.
     // Goeres ved brug af toupper() funktionen fra ctype.h biblioteket.
@@ -222,6 +262,7 @@ int favoriteSubjectDecider(char* user_subject){
         return -1; // Ukendt fag
     }
 }
+
 
 
 // Rydder inputbufferen ved at laese og kassere alle tegn indtil ('\n') som markerer at inputbufferen er tom.

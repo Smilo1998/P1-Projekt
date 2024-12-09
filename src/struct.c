@@ -14,8 +14,7 @@
 */
 
 void getStudents(student_profile profiles[], educations education_choice_array[]){
-    int i, j, q, g, m, k;
-    char subject[SUBJECT_NAME+1];
+    int i, j, q, g, k;
     char education[60];
 
     FILE *student_file = fopen("../datafiles/student.txt", "r");
@@ -34,12 +33,8 @@ void getStudents(student_profile profiles[], educations education_choice_array[]
         for(g = 0; g < NUM_OF_STATEMENTS; g++){
             fscanf(student_file, "%d", &profiles[i].statement_rating[g]);
         }
-        for(m = 0; m < NUM_OF_CATEGORIES; m++){
-            fscanf(student_file, "%d", &profiles[i].category_rating[m]);
-        }
-
-        fscanf(student_file, "%s", subject);
-        profiles[i].favorite_subject = favoriteSubjectDecider(subject);
+        
+        fscanf(student_file, "%d", &profiles[i].category);
 
         fscanf(student_file, " %[^\n]", education);
 

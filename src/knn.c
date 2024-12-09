@@ -92,7 +92,7 @@ double *preprocessStudentStructs(student_profile student){
     processed_student[i] = student.gpa;
     i++;
 
-    processed_student[i] = (double)student.favorite_subject;
+    processed_student[i] = (double)student.category;
 
     return processed_student;
 }

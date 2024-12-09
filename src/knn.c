@@ -9,13 +9,14 @@ void kNN(student_profile user, student_profile profiles[], student_profile neigh
     // Omdanner user student profile til et array for at klargoere til KNN
     double *processed_user = preprocessStudentStructs(user);
 
+    // Gennemloeber alle student profiles
     for(i = 0; i < NUM_OF_STUDENTS; i++){
         double minimum_grade = findMinimumGrade(profiles[i].education_choice.min_grade, MAX_CITY); // Finder den mindste karakter som ikke er 0 i min_grade array
 
-        if (user.gpa >= (minimum_grade - 0.5)){ 
-            // printf("Hello\n");
-            // Profiles structen gemmes i et double array
+        if (user.gpa >= (minimum_grade - 0.5)){  // Tjekker om brugerens karaktergennemsnit er større end den mindste adgangskvotient for uddannelsen profile[i] har studeret på
+            // Den pågælende elevprofil gemmes i et double array for at klargøre til beregninger i mmanhattanDistance
             double *processed_data_profile = preprocessStudentStructs(profiles[i]);
+            // Distancen mellem elev og bruger udregnes via manhattanDistance
             distance = manhattanDistance(processed_user, processed_data_profile);
             // Hvis distancen mellem user og profile er mindre end nuværende minimum bliver distance det nye minimum og index gemmes
             printf("DISTANCE TIL PERSON %lf: %lf\n", profiles[i].gpa, distance);
@@ -55,12 +56,12 @@ void kNN(student_profile user, student_profile profiles[], student_profile neigh
 }
 
 // Funktion der beregner Manhattan Distance
-double manhattanDistance(const double array_user[], const double array_profile[]){
+double manhattanDistance(const double array_user[], const double array_profile[]){ //Funktionen modtager to arrays. 1 bruger array og 1 elevprofil
     int i; 
     double result = 0;
     // Udregner summen af forskellen mellem de to arrays
     for(i = 0; i < MAX_PROCESSED_DATA; i++){
-        result += fabs((array_user[i]-array_profile[i])); // Summerer
+        result += fabs((array_user[i]-array_profile[i])); // Summerer den absolutte værdi af forskellen i hvert indeks mellem bruger og elevprofil array. 
     }
     return result;
 }

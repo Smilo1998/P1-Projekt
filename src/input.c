@@ -3,8 +3,6 @@
 // Funktion som tager input fra bruger og gemmer gpa og fag-boolean vaerdi i et struct student_profile
 student_profile addStudent(void){
     student_profile user_profile;
-    char user_subject[SUBJECT_NAME];
-    int valid_subject_input = 0;
     int valid_gpa_input = 0;
 
     // While-loekken gentager indtil brugeren indtaster et gyldigt input. 
@@ -22,28 +20,14 @@ student_profile addStudent(void){
     }
     // Prompter og gemmer de fag brugeren har haft i et array
     subjectInput(&user_profile);
-
-    // While-loekken gentager indtil brugeren indtaster et gyldigt input. 
-    // Fungerer som fejlsirking mod stavefejl eller ugyldigt input.
-    while(!valid_subject_input){
-        printf(BOLD"\nWhat is your favorite subject? \n"SET_TEXT_DEFAULT);
-        scanf("%s", user_subject);
-        // Sammenligner brugerens input med en predefineret liste af fag
-        // for at validere om det er et gyldigt input.
-        int subjectValidation = favoriteSubjectDecider(user_subject);
-        
-        if (subjectValidation != -1){
-            user_profile.favorite_subject = subjectValidation;
-            valid_subject_input = 1;
-        } else {
-            printf(RED BOLD"Invalid subject. Type the subjects name in danish.\n"SET_TEXT_DEFAULT);
-        }
-    }
+  
     subjectRating(&user_profile);
 
     statementRating(&user_profile);
 
     categoryRating(&user_profile);
+
+    printf("TEST");
 
     return user_profile;
 }  
@@ -251,72 +235,48 @@ void statementRating(student_profile *user_profile){
 }
 
 void categoryRating(student_profile *user_profile){
-    int i, j;
-    char *category_print[NUM_OF_CATEGORIES] = {"Business", "Videnskab og Teknologi", "Sundhed og Uddannelse", "Samfund og Lov"};
-    int temp;
-    int already_rated[NUM_OF_CATEGORIES + 1] = {0, 0, 0, 0};
+    char *categories[NUM_OF_CATEGORIES] = {"Business", "Samfund", "Informationsteknologi", "Videnskab", "Sundhed og Mennesker"};
 
-    printf(BOLD"\n Assign a priority between 1-4 to each of the following categories, in order of importance to you\n" SET_TEXT_DEFAULT);
-    for (j = 0; j < NUM_OF_CATEGORIES; j++){
-        printf("\n %s", category_print[j]);
+    printf(BOLD"\nChoose ONE of the following five categories in which you are most interested in\n"SET_TEXT_DEFAULT);
+    for (int i = 0; i < NUM_OF_CATEGORIES; i++){
+        printf("\n  %s",categories[i]);
     }
-    printf(BOLD "\n\nYou can only assign a rating ONCE, in order to prioritze.\n" SET_TEXT_DEFAULT);
+    printf("\n");
 
-    for (i = 0; i < NUM_OF_CATEGORIES; i++){
-        int valid_category_rating_input = 0;
-
-        while(!valid_category_rating_input){
-            printf("\n%s: ", category_print[i]);
-
-            if((scanf("%d", &temp) == 1) && temp >= 1 && temp <= NUM_OF_CATEGORIES){
-                if(already_rated[temp - 1] == 0){
-                    user_profile->category_rating[i] = temp;
-                    already_rated[temp - 1]++;
-                    valid_category_rating_input = 1;
-                }else{
-                    printf(BOLD RED"You have already assigned that rating!\n"SET_TEXT_DEFAULT);
-            }     
-            } else {
-                printf(BOLD RED"Invalid Input! You must assign a rating between 1-4\n"SET_TEXT_DEFAULT);
-            }
-            clearBuffer();
-
+    int valid_category_input = 0;
+     while(valid_category_input != 1){
+        char user_category[100];
+        printf(BOLD"\nWhich category are you most interested in? \n"SET_TEXT_DEFAULT);
+        scanf(" %s", user_category);
+        // Sammenligner brugerens input med en predefineret liste af fag
+        // for at validere om det er et gyldigt input.
+        int category_validation = categoryDecider(user_category);
+        if (category_validation != -1){
+            user_profile->category = category_validation;
+            valid_category_input = 1;
+        } else {
+            printf(RED BOLD"Invalid category, please try again.\n"SET_TEXT_DEFAULT);
         }
     }
+    printf("%d", user_profile->category);
 }
     
-
-
-
-int favoriteSubjectDecider(char* user_subject){ 
-    // Konverterer user_subject til store bogstaver foer sammenligning, for at fejlsikre mod casing-forskelle.
-    // Goeres ved brug af toupper() funktionen fra ctype.h biblioteket.
-    toUpperCase(user_subject); 
-
-    // Sammenligner den upperCase konverteret version af user_subject med en raekke fag.
-    // Ved et match returneres den tilsvarende enum vaerdi for det paagaeldende fag. Ellers returneres -1
-    if (strcmp(user_subject, "MATEMATIK") == 0) {
-        return MATEMATIK;
-    } else if (strcmp(user_subject, "FYSIK") == 0) {
-        return FYSIK;
-    } else if (strcmp(user_subject, "KEMI") == 0) {
-        return KEMI;
-    } else if (strcmp(user_subject, "BIOLOGI") == 0) {
-        return BIOLOGI;
-    } else if (strcmp(user_subject, "DANSK") == 0) {
-        return DANSK;
-    } else if (strcmp(user_subject, "ENGELSK") == 0) {
-        return ENGELSK;
-    } else if (strcmp(user_subject, "HISTORIE") == 0) {
-        return HISTORIE;
-    } else if (strcmp(user_subject, "SAMFUNDSFAG") == 0) {
-        return SAMFUNDSFAG;
-    } else if (strcmp(user_subject, "VIRKSOMHEDSOEKONOMI") == 0) {
-        return VIRKSOMHEDSOEKONOMI;
-    } else if (strcmp(user_subject, "AFSAETNING") == 0) {
-        return AFSAETNING;
+// Sammenligner strings med henblik på at returnere en integer værdi tildelt kategorien
+int categoryDecider(char* user_category){
+    // Konverterer user_category til uppercase
+    toUpperCase(user_category);
+    if (strcmp(user_category, "BUSINESS") == 0){
+        return BUSINESS;
+    } else if (strcmp(user_category, "SAMFUND") == 0){
+        return SAMFUND;
+    } else if (strcmp(user_category, "INFORMATIONSTEKNOLOGI") == 0){
+        return INFORMATIONSTEKNOLOGI;
+    } else if (strcmp(user_category, "VIDENSKAB") == 0){
+        return VIDENSKAB;
+    } else if (strcmp(user_category, "SUNDHED OG MENNESKER") == 0){
+        return SUNDHED_OG_MENNESKER;
     } else {
-        return -1; // Ukendt fag
+        return -1; //Ukendt kategori
     }
 }
 

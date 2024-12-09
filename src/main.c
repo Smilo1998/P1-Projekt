@@ -20,7 +20,7 @@ void runProgram(void){
     getEducations(education_choice);
     getStudents(profiles, education_choice);
     
-    //Løkke der lader programmet køre flere gange. Hvis operation variablen bliver -1 stopper programmet helt;
+    //Loop der lader programmet køre flere gange. Hvis operation variablen bliver -1 stopper programmet helt;
     do{
         welcomeMessage(&operation);
             if(operation == -1){
@@ -29,14 +29,13 @@ void runProgram(void){
             }
         // Gemmer input fra bruger i user array
         student_profile user = addStudent();
-        kNN(user, profiles, neighbours);
         // Finder de elevprofiler som vores bruger minder mest om
+        kNN(user, profiles, neighbours);
         // Outputter til brugeren
         for(int i = 0; i < AMOUNT_OF_NEIGHBOURS; i++){
         printEducation(neighbours[i], user);
         }
     } while(operation >=0);
-
 }
 
 void welcomeMessage(int *operation){

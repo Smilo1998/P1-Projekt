@@ -1,13 +1,6 @@
 #ifndef HEADER_H
 #define HEADER_H
 
-// Tjekker for Windows-system og inkluderer henholdsvis windows.h eller unistd.h bibliotek.
-#ifdef _WIN32
-#include <windows.h>
-#else
-#include <unistd.h>
-#endif
-
 // Libraries
 #include <stdio.h>
 #include <stdlib.h>
@@ -128,7 +121,6 @@ double findMinimumGrade(double min_grade[], int size);
 
 // Prototyper til funktioner fra output.c
 void printEducation(student_profile student, student_profile user);
-void delay(int milliseconds);
 
 // Prototyper til funktioner fra main.c
 int main(void);

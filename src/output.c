@@ -8,7 +8,6 @@ void printEducation(student_profile student, student_profile user){
     printf(BOLD"Cities with this education:\n"UNBOLD);
 
         for(i = 0; i < MAX_CITY; i++){
-            delay(50);
             if (student.education_choice.min_grade[i] >= 2){
                 switch(i){
                     case 0:
@@ -57,12 +56,4 @@ void printEducation(student_profile student, student_profile user){
             }
         }
     printf("\nUse this link to read more:\n%s\n\n", student.education_choice.link);
-}
-
-void delay(int milliseconds) {
-#ifdef _WIN32 // Tjekker om systemet er Windows. Da Windows og Linux/Mac skal bruge to forskellige 'sleep' funktioner.
-    Sleep(milliseconds);  // Windows
-#else
-    usleep(milliseconds * 1000);  // Linux/macOS. Ganges med 1000 fordi 'usleep' tager mikrosekunder vs 'Sleep' der tager millisekunder,
-#endif
 }

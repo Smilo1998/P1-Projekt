@@ -152,44 +152,101 @@ void subjectRating(student_profile *user_profile){
 }
 
 void statementRating(student_profile *user_profile){
-    int i, j;
+    int i, j, k, q, z;
     char *statement_print[NUM_OF_STATEMENTS];
+    char statement_id[NUM_OF_STATEMENTS];
     int valid_statement_rating_input = 0;
-    int temp;
-    int already_rated[6] = {0, 0, 0, 0, 0, 0};
+    char temp[10];
+    int already_rated[NUM_OF_STATEMENTS] = {0, 0, 0, 0, 0};
+    int valid_redo_input = 0;
+    char redoTemp[10];
+    int confirmStatements = 0;
 
-    statement_print[0] = "Jeg prioriterer en hoej loen";
-    statement_print[1] = "Jeg prioriterer arbejde med mennesker";
-    statement_print[2] = "Jeg prioriterer fleksible arbejdstider";
-    statement_print[3] = "Jeg prioriterer gode beskaeftigelsesmuligheder";
-    statement_print[4] = "Jeg prioriterer passion for mit arbejde";
+    statement_print[0] = "A) Jeg prioriterer en hoej loen";
+        statement_id[0] = 'A';
 
-    printf(BOLD"\nAssign a priority-rating between 1-5 to each of the following statements, in order of importance to you:\n"SET_TEXT_DEFAULT);
-    for (j = 0; j < NUM_OF_STATEMENTS; j++){
-        printf("\n  %s",statement_print[j]);
-    }
-    printf(BOLD "\n\nYou can only assign a rating ONCE, in order to prioritze.\n" SET_TEXT_DEFAULT);
+    statement_print[1] = "B) Jeg prioriterer arbejde med mennesker";
+        statement_id[1] = 'B';
 
-    for (i = 0; i < NUM_OF_STATEMENTS; i++){
-        valid_statement_rating_input = 0;
+    statement_print[2] = "C) Jeg prioriterer fleksible arbejdstider";
+        statement_id[2] = 'C';
 
-        while(!valid_statement_rating_input){
-            
-            printf("\n%s: ", statement_print[i]);
+    statement_print[3] = "D) Jeg prioriterer gode beskaeftigelsesmuligheder";
+        statement_id[3] = 'D';
 
-            if ((scanf("%d", &temp) == 1) && temp >= 1 && temp <= NUM_OF_STATEMENTS){
-                if (already_rated[temp] == 0){
-                    user_profile->statement_rating[i] = temp;
-                    already_rated[temp]++;
-                    valid_statement_rating_input = 1;  
-                 } else {
-                    printf(BOLD RED"You have already assigned that rating!\n"SET_TEXT_DEFAULT);
-                 }
-            } else {
-                printf(BOLD RED"Invalid Input! You must assign a rating between 1-5!\n"SET_TEXT_DEFAULT);
+    statement_print[4] = "E) Jeg prioriterer passion for mit arbejde";
+        statement_id[4] = 'E';
+
+    while(!confirmStatements){
+        valid_redo_input = 0;
+
+        printf(BOLD"\nAssign the following statements a priority using A, B, C, D or E, in order of importance to you:\n"SET_TEXT_DEFAULT);
+        for (i = 0; i < NUM_OF_STATEMENTS; i++){
+            printf("\n  %s",statement_print[i]);
+        }
+        printf(BOLD "\n\nYou can only assign a rating ONCE, in order to prioritze.\n" SET_TEXT_DEFAULT);
+
+        for (j = 0; j < NUM_OF_STATEMENTS; j++){
+
+            valid_statement_rating_input = 0;
+
+            while(!valid_statement_rating_input){
+                printf("\n%d prioritet: ", j + 1);
+                
+                scanf(" %9s", temp);
+                toUpperCase(temp);
+
+                if (strlen(temp) == 1 && strchr("ABCDE", temp[0]) != NULL) {
+
+                    for (k = 0; k < NUM_OF_STATEMENTS; k++){
+                        if (temp[0] == statement_id[k]){
+                            if (already_rated[k] == 0){
+
+                                user_profile->statement_rating[j] = k + 1;
+                                already_rated[k]++;
+                                valid_statement_rating_input = 1;
+                                break;  
+
+                            } else {
+                                printf(BOLD RED"You have already assigned that rating!\n"SET_TEXT_DEFAULT);
+                            }
+                        }
+                    }
+                } else {
+                printf(BOLD RED"Invalid Input! You must assign a priority with A, B, C, D or E!\n"SET_TEXT_DEFAULT);
+                }
+                clearBuffer();
+            }
+        }
+        printf(BOLD"\nYour have rated the statements in the following order:\n\n"SET_TEXT_DEFAULT);
+        for(q = 0; q < NUM_OF_STATEMENTS; q++){
+            printf(BOLD"%d prioritet: "SET_TEXT_DEFAULT, q + 1);
+            printf("%s\n",statement_print[user_profile->statement_rating[q] - 1]);
+        }
+        while(!valid_redo_input){
+            printf(BOLD"\nType Y to confirm or R to redo the rating\n"SET_TEXT_DEFAULT);
+                scanf(" %9s", redoTemp);
+                toUpperCase(redoTemp);
+
+            if (strlen(redoTemp) == 1 && strchr("YR", redoTemp[0]) != NULL){
+                if (redoTemp[0] == 'Y'){
+                    confirmStatements = 1;
+                    valid_redo_input = 1;
+                    break;
+                } else if (redoTemp[0] == 'R'){
+                    for (z = 0; z < NUM_OF_STATEMENTS; z++) {
+                        user_profile->statement_rating[z] = 0;
+                        already_rated[z] = 0;
+                    }
+                    valid_redo_input = 1;
+                    break;
+                }
+            }
+            else {
+                printf(BOLD RED"Invalid input!"SET_TEXT_DEFAULT);
             }
             clearBuffer();
-        }
+        }    
     }
 }
 

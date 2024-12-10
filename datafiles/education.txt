@@ -82,6 +82,10 @@ Oekonomi
 7.6 6.7 2 2 0 0 0 0 0 0 
 https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/samfundsvidenskabeligebacheloruddannelser/erhvervsoekonomi/oekonomi
 
+Bioteknologi
+8.4 9.2 0 2 0 0 0 0 0 0
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/tekniskvidenskabeligebacheloruddannelser/civilingenioeruddannelser/bioteknologi-civilingenioer
+
 
 
 

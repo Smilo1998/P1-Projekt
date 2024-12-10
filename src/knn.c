@@ -1,4 +1,5 @@
 #include "../include/header.h"
+#include "../include/knn.h"
 
 // K-Nearest-Neighbours Algoritme finder den elev som brugeren er taettest paa
 void kNN(student_profile user, student_profile profiles[], student_profile neighbours[]){

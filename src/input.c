@@ -1,4 +1,5 @@
 #include "../include/header.h" 
+#include "../include/input.h"
 
 // Funktion som tager input fra bruger og gemmer gpa og fag-boolean vaerdi i et struct student_profile
 student_profile addStudent(void){

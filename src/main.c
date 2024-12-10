@@ -1,5 +1,9 @@
-/* INDEN DU ARBEJDER SAA LAES RETNINGSLINJER PAA GITHUB */
+/* P1 Gr 8*/
 #include "../include/header.h"
+#include "../include/input.h"
+#include "../include/output.h"
+#include "../include/knn.h"
+#include "../include/struct.h"
 
 int main(void){
     // Saetter terminal-vinduets navn til titlen paa programmet med en ANSI-Sekvens
@@ -59,10 +63,9 @@ void welcomeMessage(int *operation){
 
 //Tager imod og tjekker om gyldigt input i startsekvensen af programmet.
 int checkInputMain(void){
-    int valid_level_input = 0;
     char input[5];
     
-     while(!valid_level_input){ 
+     while(1){ 
             scanf(" %4s", input);
             // Konverterer input til store bogstaver for at undgaa problemer med casing-forskelle under validation.
             toUpperCase(input);
@@ -74,14 +77,14 @@ int checkInputMain(void){
                     case 'Q': 
                         return -1;
                     default:
-                        printf("fejl input fag niveau");
+                        printf("Fejl input main");
                         exit(EXIT_FAILURE);
                 }
-                valid_level_input = 1;
             } else{
                 printf(RED BOLD"Invalid Input!\n" SET_TEXT_DEFAULT);
             }  
             clearBuffer(); // Rydder inputbufferen for at forhindre ugyldige inputs i at paavirke efterfoelgende input.
     }
+    return 0;
 }
 

@@ -8,6 +8,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "../testing/CuTest.h"
+
 // Symbolske konstanter 
 #define NAME_LENGTH 30
 #define SUBJECT_NAME 40
@@ -91,51 +92,14 @@ typedef struct student_profile{
     educations education_choice;
 } student_profile;
 
-
-
-
-
-// Tilfoej dette: #include "../include/header.h" i alle filer.
-
-//Her kan indsaettes konstante definitioner som f.eks. #DEFINE PI 3.14...
-
-//Her indsaettes prototyper af ALLE funktioner der laves i seperate dokumenter.
-// - Det er ikke noedvendigt at indsaette prototyperne i en bestemt raekkefoelge. Men organiser dem saa man kan finde rundt i dem.
-
 // Prototyper til testing
 CuSuite *test_manhattan_GetSuite();
-
-// Prototyper til funktioner fra struct.c
-void getEducations(educations education_choice[]);
-void getStudents(student_profile profiles[], educations education_choice_array[]);
-
-// Prototyper til funktioner fra input.c
-void inputData(void);
-void subjectInput(student_profile *user_profile);
-student_profile addStudent(void);
-void subjectRating(student_profile *user_profile);
-void statementRating(student_profile *user_profile);
-void clearBuffer();
-void toUpperCase (char str[]);
-int categoryDecider(char* user_category);
-void categoryRating(student_profile *user_profile);
-
-// Prototyper til funktioner fra knn.c
-double manhattanDistance(const double array_user[], const double array_profile[]);
-double *preprocessStudentStructs(student_profile student);
-void kNN(student_profile user, student_profile profiles[], student_profile neighbours[]);
-double findMinimumGrade(double min_grade[], int size);
-
-// Prototyper til funktioner fra output.c
-void printEducation(student_profile student, student_profile user);
 
 // Prototyper til funktioner fra main.c
 int main(void);
 void runProgram(void);
 void welcomeMessage(int *operation);
 int checkInputMain(void);
-
-
 
 
 #endif 

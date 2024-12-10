@@ -1,4 +1,5 @@
 #include "../include/header.h"
+#include "../include/output.h"
 
 void printEducation(student_profile student, student_profile user){
     int i;

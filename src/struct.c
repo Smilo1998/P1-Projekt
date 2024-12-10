@@ -1,4 +1,5 @@
 #include "../include/header.h"
+#include "../include/struct.h"
 
 /*  INDEKSPLADSER FOR FAGENE i array nedenunder
     MATEMATIK = 0,

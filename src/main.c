@@ -27,7 +27,7 @@ void runProgram(void){
     //Get educations kaldes først da education_choice arrayet bruges i getStudents.
     getEducations(education_choice);
     getStudents(profiles, education_choice);
-    
+
     //Loop der lader programmet køre flere gange. Hvis operation variablen bliver -1 stopper programmet helt;
     do{
         welcomeMessage(&operation);

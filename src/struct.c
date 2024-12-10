@@ -16,7 +16,7 @@ void getStudents(student_profile profiles[], educations education_choice_array[]
     //Itererer over hver student i student.txt
     for(i = 0; i < NUM_OF_STUDENTS; i++){
         //scanner gpa ind som double
-        fscanf(student_file, " %lf", &profiles[i].gpa);
+        fscanf(student_file, "%lf", &profiles[i].gpa);
         //scanner en liste af fag niveauer ind i et array
         for(j = 0; j < NUM_OF_SUBJECTS; j++){
             fscanf(student_file, "%d", &profiles[i].fag_array[j]);
@@ -40,8 +40,10 @@ void getStudents(student_profile profiles[], educations education_choice_array[]
         for(k = 0; k < MAX_EDUCATIONS; k++){
             if(strcmp(education, education_choice_array[k].name) == 0){
                 profiles[i].education_choice = education_choice_array[k];
+                break;
             }
         }
+        
     }
     fclose(student_file);
 }

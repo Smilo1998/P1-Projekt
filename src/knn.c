@@ -67,10 +67,10 @@ double manhattanDistance(const double array_user[], const double array_profile[]
     return result;
 }
 
-// Funktion som omdanner structs til arrays
+// Funktion som omdanner parametre fra structs til et langt array
 double *preprocessStudentStructs(student_profile student){
     int i = 0;
-    double *processed_student = malloc(sizeof(double) * MAX_PROCESSED_DATA); // TILFØJ FREE SENERE I PROGRAMMET;
+    double *processed_student = malloc(sizeof(double) * MAX_PROCESSED_DATA); 
     if(processed_student == NULL){
         printf("Memory allocation error in preprocessStudentStructs");
         exit(EXIT_FAILURE);
@@ -98,6 +98,7 @@ double *preprocessStudentStructs(student_profile student){
     return processed_student;
 }
 
+//Funktion som finder mindste karakterkrav på uddannelsen koblet på den bestemte elevprofil
 double findMinimumGrade(double min_grade[], int size){
     int i;
     double minimum = INFINITY;

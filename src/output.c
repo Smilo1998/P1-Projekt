@@ -1,6 +1,8 @@
 #include "../include/header.h"
 #include "../include/output.h"
 
+//Printer den forespurgte uddannelse ud. Printer kun byerne hvor uddannelsen er tilgængelig.
+//Printer også byer hvor karakterkrav ikke overholdes.
 void printEducation(student_profile student, student_profile user){
     int i;
     printf("---------------------------------------------");
@@ -8,6 +10,7 @@ void printEducation(student_profile student, student_profile user){
     printf("\n%s\n\n", student.education_choice.name);
     printf(BOLD"Cities with this education:\n"UNBOLD);
 
+        //Itererer over alle byerne og tjekker om uddannelsen er tilgængelig i den valgte by
         for(i = 0; i < MAX_CITY; i++){
             if (student.education_choice.min_grade[i] >= 2){
                 switch(i){
@@ -53,8 +56,10 @@ void printEducation(student_profile student, student_profile user){
                     } else {
                         printf(RED);
                     }
+                //Printer sidste års kvote 1 karakterkrav
                 printf(BOLD"%.1f\n"SET_TEXT_DEFAULT, student.education_choice.min_grade[i]);
             }
         }
+    //Printer link til uddannelsen på www.ug.dk
     printf("\nUse this link to read more:\n%s\n\n", student.education_choice.link);
 }

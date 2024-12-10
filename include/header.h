@@ -13,13 +13,13 @@
 #define NAME_LENGTH 30
 #define SUBJECT_NAME 40
 #define MAX_DATA 250
-#define NUM_OF_STUDENTS 7
+#define NUM_OF_STUDENTS 21
 #define NUM_OF_SUBJECTS 10
 #define NUM_OF_STATEMENTS 5
-#define NUM_OF_CATEGORIES 5
+#define NUM_OF_CATEGORIES 6
 #define MAX_PROCESSED_DATA 27
 #define MAX_CITY 10
-#define MAX_EDUCATIONS 7
+#define MAX_EDUCATIONS 21
 #define AMOUNT_OF_NEIGHBOURS 3
 
 // ANSI Escape Sequences er koder der bruges til at manipulere terminaloutput.
@@ -50,10 +50,12 @@ typedef enum{
 
 typedef enum{
     BUSINESS = 0,
-    SAMFUND = 20,
-    INFORMATIONSTEKNOLOGI = 40,
-    VIDENSKAB = 60,
-    SUNDHED_OG_MENNESKER = 80,   
+    SAMFUND = 25,
+    SUNDHED_OG_MENNESKER = 50, 
+    KREATIV = 75,
+    INFORMATIONSTEKNOLOGI = 100,
+    VIDENSKAB = 125,
+      
 } category_value;
 
 typedef enum{

@@ -236,7 +236,7 @@ void statementRating(student_profile *user_profile){
 }
 
 void categoryRating(student_profile *user_profile){
-    char *categories[NUM_OF_CATEGORIES] = {"Business", "Samfund", "Informationsteknologi", "Videnskab", "Sundhed og Mennesker"};
+    char *categories[NUM_OF_CATEGORIES] = {"Business", "Samfund", "Sundhed og Mennesker", "Kreativ", "Informationsteknologi", "Videnskab"};
 
     printf(BOLD"\nChoose ONE of the following five categories in which you are most interested in\n"SET_TEXT_DEFAULT);
     for (int i = 0; i < NUM_OF_CATEGORIES; i++){
@@ -276,6 +276,8 @@ int categoryDecider(char* user_category){
         return VIDENSKAB;
     } else if (strcmp(user_category, "SUNDHED OG MENNESKER") == 0){
         return SUNDHED_OG_MENNESKER;
+    } else if (strcmp(user_category, "KREATIV") == 0){
+        return KREATIV;
     } else {
         return -1; //Ukendt kategori
     }

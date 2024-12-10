@@ -1,8 +1,8 @@
-Software
+Software 
 5.4 0 0 2 0 0 0 0 0 0
 https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/tekniskvidenskabeligebacheloruddannelser/civilingenioeruddannelser/software
 
-Erhvervsoekonomi
+Erhvervsoekonomi 
 7.9 7.9 6.7 2 2 0 0 2 0 6
 https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/samfundsvidenskabeligebacheloruddannelser/erhvervsoekonomi/erhvervsoekonomi-ha
 
@@ -25,3 +25,65 @@ https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/
 Medicin
 10.6 10.1 10.4 9.9 0 0 0 0 0 0 
 https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/sundhedsvidenskabeligebacheloruddannelser/medicin
+
+Farmaci
+8.5 0 7.7 0 0 0 0 0 0 0
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/sundhedsvidenskabeligebacheloruddannelser/farmaci
+
+Datalogi
+2 2 2 2 0 0 0 0 0 0
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/naturvidenskabeligebacheloruddannelser/matematikfysikkemiogdatalogi/datalogi
+
+Medialogi
+2 0 0 2 0 0 0 0 0 0 
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/naturvidenskabeligebacheloruddannelser/matematikfysikkemiogdatalogi/medialogi
+
+Musikvidenskab
+2.9 2 0 2 0 0 0 0 0 0 
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/humanistiskebacheloruddannelser/oevrigehumaniora/musikvidenskab
+
+Teater og performancestudier
+8.2 0 0 0 0 0 0 0 0 0
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/humanistiskebacheloruddannelser/oevrigehumaniora/teater-og-performancestudier
+
+Bygningskonstruktoer
+6.6 4.1 2 2 2 2 2 0 0 0
+https://www.ug.dk/uddannelser/professionsbacheloruddannelser/tekniskeogteknologiskeudd/oevrigetekniskeuddannelser/bygningskonstruktoer
+
+Sygeplejerske
+6.8 8.8 6.5 6.9 0 2 2 0 2 4.3
+https://www.ug.dk/uddannelser/professionsbacheloruddannelser/socialogsundhedsuddannelser/sygeplejerske
+
+Paedagog
+2 6.9 2 5.1 2 2 2 0 0 2
+https://www.ug.dk/uddannelser/professionsbacheloruddannelser/paedagogiskeuddannelser/paedagog
+
+Socialraadgiver
+7.4 5.1 2.4 2 2 0 0 0 2 4.6 
+https://www.ug.dk/uddannelser/professionsbacheloruddannelser/samfundsfagligeogoekonomiskeuddannelser/socialraadgiver
+
+Psykologi
+11.1 10.7 10.7 10.0 0 0 0 0 0 0
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/samfundsvidenskabeligebacheloruddannelser/oevrigesamfundsvidenskab/psykologi
+
+Data Science
+8.4 0 0 0 0 0 0 0 0 0
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/naturvidenskabeligebacheloruddannelser/matematikfysikkemiogdatalogi/data-science
+
+Datavidenskab
+0 2 0 0 0 0 0 0 0 0
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/naturvidenskabeligebacheloruddannelser/matematikfysikkemiogdatalogi/datavidenskab
+
+Finans
+6.4 6.4 2 2 2 0 0 2 0 0
+https://www.ug.dk/uddannelser/professionsbacheloruddannelser/oekonomiskmerkantileuddannelser/finans
+
+Oekonomi
+7.6 6.7 2 2 0 0 0 0 0 0 
+https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/samfundsvidenskabeligebacheloruddannelser/erhvervsoekonomi/oekonomi
+
+
+
+
+
+

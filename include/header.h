@@ -56,12 +56,14 @@ typedef enum{
     SUNDHED_OG_MENNESKER = 80,   
 } category_value;
 
+//Enumeration type til fag niveauer 
 typedef enum{
     A = 3,
     B = 2,
     C = 1,
 } fag_niveau;
 
+//Enumeration type for overskuelighed i array over byer
 typedef enum{
     KOEBENHAVN = 0,
     AARHUS = 1,

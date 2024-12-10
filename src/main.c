@@ -5,6 +5,7 @@
 #include "../include/knn.h"
 #include "../include/struct.h"
 
+//Main funktion der starter programmet
 int main(void){
     // Saetter terminal-vinduets navn til titlen paa programmet med en ANSI-Sekvens
     printf("\033]0;Education Recommendation App\007");
@@ -14,13 +15,16 @@ int main(void){
     return 0;
 }
 
+//Funktion der kører den overordnede udførelses sekvens
 void runProgram(void){
     int operation = 0;
-    // Opretter struct array fra vores elevprofiler og opretter en user profil igennem input 
+    // ærkler profiles, education_choice og neighbours arrays til videre brug i programmet;
     student_profile profiles [NUM_OF_STUDENTS];
     educations education_choice[MAX_EDUCATIONS];
     student_profile neighbours[3];
 
+    //Kalder funktionerne i struct.c for at scanne data ind i arrays.
+    //Get educations kaldes først da education_choice arrayet bruges i getStudents.
     getEducations(education_choice);
     getStudents(profiles, education_choice);
     
@@ -42,6 +46,8 @@ void runProgram(void){
     } while(operation >=0);
 }
 
+//Funktion der printer prompts til overordnet kørsel af programmet
+//Funktionen tager også imod brugerinput for kørslen
 void welcomeMessage(int *operation){
     //Første besked når programmet starter. Introduktion
     if(*operation == 0){

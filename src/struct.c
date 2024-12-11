@@ -5,8 +5,9 @@
 //Dataen bliver scannet ind i et array af struct student_profile
 void getStudents(student_profile profiles[], educations education_choice_array[]){
     int i, j, q, g, k;
-    char education[60];
+    char education[NAME_LENGTH];
 
+    // Initilisering af en file pointer til en txt fil
     FILE *student_file = fopen("../datafiles/student.txt", "r");
     //Error handling hvis fil ikke kan åbnes.
     if (student_file == NULL) {
@@ -29,15 +30,11 @@ void getStudents(student_profile profiles[], educations education_choice_array[]
         for(g = 0; g < NUM_OF_STATEMENTS; g++){
             fscanf(student_file, "%d", &profiles[i].statement_rating[g]);
         }
-        
         //scanner kategori interesse ind i struct student_profile
-        fscanf(student_file, "%d", &profiles[i].category);
-        
+        fscanf(student_file, "%d", &profiles[i].category);        
         //Scanner studentens valgte uddannelse ind.
         fscanf(student_file, " %[^\n]", education);
-
         //Tjekker om navnet af uddannelsesvalget stemmer overens med en uddannelse fra education_choice_array
-        
         for(k = 0; k < MAX_EDUCATIONS; k++){
             if(strcmp(education, education_choice_array[k].name) == 0){
                 profiles[i].education_choice = education_choice_array[k];
@@ -47,11 +44,11 @@ void getStudents(student_profile profiles[], educations education_choice_array[]
         }
         
     }
-    fclose(student_file);
+    fclose(student_file); 
 }
 
 //Funktion der scanner uddannelser fra education.txt ved brug af fscanf.
-//Dataen bliver printet ind i et arry af struct educations
+//Dataen bliver printet ind i et array af struct educations
 void getEducations(educations education_choice[]){
     int i;
     int j;
@@ -63,13 +60,13 @@ void getEducations(educations education_choice[]){
         exit(EXIT_FAILURE);
     }
     for(i = 0; i < MAX_EDUCATIONS; i++){
-        //scanner efter uddannelsesnavn indtil linjeskift
+        // Scanner efter uddannelsesnavn indtil linjeskift
         fscanf(education_file, " %[^\n]", education_choice[i].name);
-        //scanner efter et array af karakterkrav ud fra byerne uddannelserne er tilgængelige i indtil MAX_CITY
+        // Scanner efter et array af karakterkrav ud fra byerne uddannelserne er tilgængelige i indtil MAX_CITY
         for(j = 0; j < MAX_CITY; j++){
             fscanf(education_file, "%lf", &education_choice[i].min_grade[j]);
         }
-        //Scanner et link som en string
+        // Scanner et link som en string
         fscanf(education_file, "%s", education_choice[i].link);
     }
     fclose(education_file);

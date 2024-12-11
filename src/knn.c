@@ -30,25 +30,20 @@ void kNN(student_profile user, student_profile profiles[], student_profile neigh
                 //Ryk profilens placering ned i neighbours arrayet. 
                 minimum[2] = minimum[1];
                 neighbours[2] = neighbours[1];
-
                 //sæt anden tætteste profil
                 minimum[1] = minimum[0];
-                neighbours[1] = neighbours[0];
-                
+                neighbours[1] = neighbours[0];    
                 //Ny tætteste profil
                 minimum[0] = distance;
                 neighbours[0] = profiles[i];
-            }
-            else if (distance < minimum[1]){
+            } else if (distance < minimum[1]){
                 //sæt tredje tætteste profil
                 minimum[2] = minimum[1];
                 neighbours[2] = neighbours[1];
-
                 //Ny anden tætteste profil
                 minimum[1] = distance;
                 neighbours[1] = profiles[i];
-            }
-            else if (distance < minimum[2]){
+            } else if (distance < minimum[2]){ 
                 //ny tredje tætteste profil
                 minimum[2] = distance;
                 neighbours[2] = profiles[i];
@@ -75,13 +70,14 @@ double manhattanDistance(const double array_user[], const double array_profile[]
 // Funktion som omdanner parametre fra structs til et langt array
 double *preprocessStudentStructs(student_profile student){
     int i = 0;
-    double *processed_student = malloc(sizeof(double) * MAX_PROCESSED_DATA); 
-    if(processed_student == NULL){
-        printf("Memory allocation error in preprocessStudentStructs");
+    double *processed_student = malloc(sizeof(double) * MAX_PROCESSED_DATA); // Dynamisk allokering af array
+    if(processed_student == NULL){                                          
+        printf("Memory allocation error in preprocessStudentStructs");       // Error handling
         exit(EXIT_FAILURE);
     }
-    
-    for(i = 0; i < NUM_OF_SUBJECTS; i++){
+
+    // Loops som ligger data fra student profile ind i arrayet
+    for(i = 0; i < NUM_OF_SUBJECTS; i++){                                   
         processed_student[i] = (double)student.fag_array[i];
     }
 
@@ -100,10 +96,10 @@ double *preprocessStudentStructs(student_profile student){
 
     processed_student[i] = (double)student.category;
 
-    return processed_student;
+    return processed_student;                                             
 }
 
-//Funktion som finder mindste karakterkrav på uddannelsen koblet på den bestemte elevprofil
+// Funktion som finder mindste karakterkrav på uddannelsen koblet på den bestemte elevprofil
 double findMinimumGrade(double min_grade[], int size){
     int i;
     double minimum = INFINITY;
@@ -113,9 +109,10 @@ double findMinimumGrade(double min_grade[], int size){
             minimum = min_grade[i];
         }
     }
-    return minimum;
+    return minimum;                                                     
 }
 
+// Funktion som normaliserer alt data fra det fyldte array til værdier mellem 0 og 1. Herefter bliver data tildelt vægtning efter kategori som styrer hvor meget programmet prioterer denne datas egenskab
 void normalizeAndWeightDistribute(double processed_array[], int array_size){
     // Definerer minimum og maximum værdier fo hver datatype
     double gpa_min = 2.0, gpa_max = 13.0;
@@ -124,7 +121,7 @@ void normalizeAndWeightDistribute(double processed_array[], int array_size){
     double statement_priority_min = 1.0, statement_priority_max = 5.0;
     double category_min = 0.0, category_max = 125.0;
 
-    // Definerer vægtning
+    // Definerer vægtning. Disse kan justeres efter behov med henblik på at finde den rette balance
     double gpa_weight                = 0.6;
     double subject_level_weight      = 0.8;
     double subject_rating_weight     = 1.4;

@@ -21,7 +21,7 @@ void runProgram(void){
     // ærkler profiles, education_choice og neighbours arrays til videre brug i programmet;
     student_profile profiles [NUM_OF_STUDENTS];
     educations education_choice[MAX_EDUCATIONS];
-    student_profile neighbours[3];
+    student_profile neighbours[AMOUNT_OF_NEIGHBOURS];
 
     //Kalder funktionerne i struct.c for at scanne data ind i arrays.
     //Get educations kaldes først da education_choice arrayet bruges i getStudents.

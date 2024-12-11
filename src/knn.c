@@ -122,11 +122,11 @@ void normalizeAndWeightDistribute(double processed_array[], int array_size){
     double category_min = 0.0, category_max = 125.0;
 
     // Definerer vægtning. Disse kan justeres efter behov med henblik på at finde den rette balance
-    double gpa_weight                = 0.6;
-    double subject_level_weight      = 0.8;
-    double subject_rating_weight     = 1.4;
-    double statement_priority_weight = 1.0;
-    double category_weight           = 2.2;
+    double gpa_weight                = 2.5;
+    double subject_level_weight      = 0.2;
+    double subject_rating_weight     = 0.3;
+    double statement_priority_weight = 0.6;
+    double category_weight           = 10.5;
 
     // Normalisering og vægtning af subject level
     for (int i = 0; i < NUM_OF_SUBJECTS; i++){

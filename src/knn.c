@@ -30,7 +30,7 @@ void kNN(student_profile user, student_profile profiles[], student_profile neigh
                 //Ryk profilens placering ned i neighbours arrayet. 
                 minimum[2] = minimum[1];
                 neighbours[2] = neighbours[1];
-
+                
                 //sæt anden tætteste profil
                 minimum[1] = minimum[0];
                 neighbours[1] = neighbours[0];

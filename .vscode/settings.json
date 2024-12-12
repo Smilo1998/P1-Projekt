@@ -5,6 +5,7 @@
         "cutest.h": "c",
         "string.h": "c",
         "input.h": "c",
-        "struct.h": "c"
+        "struct.h": "c",
+        "toolbox.h": "c"
     }
 }

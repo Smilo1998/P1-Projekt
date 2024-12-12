@@ -7,6 +7,7 @@
 #include <math.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdbool.h>
 #include "../testing/CuTest.h"
 
 // Symbolske konstanter 
@@ -21,6 +22,9 @@
 #define MAX_CITY 10
 #define MAX_EDUCATIONS 21
 #define AMOUNT_OF_NEIGHBOURS 3
+
+#define DECIMAL_INPUT 1
+#define MAX_USER_INPUT_LENGTH 25
 
 // ANSI Escape Sequences er koder der bruges til at manipulere terminaloutput.
 // De er indbygget i terminalen, og det er terminalen der fortolker og implementerer dem når de printes.

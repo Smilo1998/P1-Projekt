@@ -58,10 +58,8 @@ bool getInputInt(int* integer){
 }  
 
 bool getInputString(char* string){
-    bool successful_input = false;
 
-    successful_input = standardUserInputValidation(string);
-    if (successful_input == true){
+    if (standardUserInputValidation(string) == true){
         return true;
     } else {
         return false;
@@ -90,14 +88,6 @@ void resetIntArray(char arrayToReset[]){
     int sizeOfArray = strlen(arrayToReset);
     for (int i = 0; i < sizeOfArray; i++) {
         arrayToReset[i] = 0;
-    }
-}
-
-int containsSpaces(char arrayToCheck[]) {
-    if (strchr(arrayToCheck, ' ') != NULL){
-        return 1;
-    } else {
-        return 0;
     }
 }
 

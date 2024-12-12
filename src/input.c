@@ -16,8 +16,6 @@ student_profile addStudent(void){
 
     categoryRating(&user_profile);
 
-    printf("TEST");
-
     return user_profile;
 }  
 
@@ -224,7 +222,6 @@ void categoryRating(student_profile *user_profile){
         }
         clearBuffer();
     }
-    printf("%d", user_profile->category);
 }
     
 // Sammenligner strings med henblik på at returnere en integer værdi tildelt kategorien

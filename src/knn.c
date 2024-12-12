@@ -9,7 +9,7 @@ void kNN(student_profile user, student_profile profiles[], student_profile neigh
 
     // Omdanner user student profile til et array for at klargoere til KNN
     double *processed_user = preprocessStudentStructs(user);
-        
+
     // Normaliserer værdierne i arrayet til mellem 0 og 1 og definerer en vægtfordeling
     normalizeAndWeightDistribute(processed_user, ARRAY_SIZE);
     
@@ -126,7 +126,7 @@ void normalizeAndWeightDistribute(double processed_array[], int array_size){
     double subject_level_weight      = 0.2;
     double subject_rating_weight     = 0.3;
     double statement_priority_weight = 0.6;
-    double category_weight           = 10.5;
+    double category_weight           = 1.5 + 9;
 
     // Normalisering og vægtning af subject level
     for (int i = 0; i < NUM_OF_SUBJECTS; i++){

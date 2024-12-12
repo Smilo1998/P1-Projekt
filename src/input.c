@@ -246,4 +246,3 @@ int categoryDecider(char* user_category){
         return -1; //Ukendt kategori
     }
 }
-

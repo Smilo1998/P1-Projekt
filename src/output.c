@@ -4,14 +4,21 @@
 //Printer den forespurgte uddannelse ud. Printer kun byerne hvor uddannelsen er tilgængelig.
 //Printer også byer hvor karakterkrav ikke overholdes.
 void printEducation(student_profile student, student_profile user){
-    int i;
     printf("---------------------------------------------");
     printf(BOLD"\nRecommended education based on your inputs:\n"UNBOLD);
     printf("\n%s\n\n", student.education_choice.name);
     printf(BOLD"Cities with this education:\n"UNBOLD);
 
-        //Itererer over alle byerne og tjekker om uddannelsen er tilgængelig i den valgte by
-        for(i = 0; i < MAX_CITY; i++){
+    // Tjekker om uddannelse er tilgængelig i den valgte by og printer byen hvis dette er tilfældet
+    checkCity(student, user);
+    
+    //Printer link til uddannelsen på www.ug.dk
+    printf("\nUse this link to read more:\n%s\n\n", student.education_choice.link);
+}
+
+void checkCity(student_profile student, student_profile user){
+    //Itererer over alle byerne og tjekker om uddannelsen er tilgængelig i den valgte by
+        for(int i = 0; i < MAX_CITY; i++){
             if (student.education_choice.min_grade[i] >= 2){
                 switch(i){
                     case 0:
@@ -60,6 +67,4 @@ void printEducation(student_profile student, student_profile user){
                 printf(BOLD"%.1f\n"SET_TEXT_DEFAULT, student.education_choice.min_grade[i]);
             }
         }
-    //Printer link til uddannelsen på www.ug.dk
-    printf("\nUse this link to read more:\n%s\n\n", student.education_choice.link);
 }

@@ -10,9 +10,9 @@
 #include "../testing/CuTest.h"
 
 // Symbolske konstanter 
-#define NAME_LENGTH 30
+#define NAME_LENGTH 60
 #define SUBJECT_NAME 40
-#define MAX_DATA 250
+#define MAX_LINK_LENGTH 250
 #define NUM_OF_STUDENTS 22
 #define NUM_OF_SUBJECTS 10
 #define NUM_OF_STATEMENTS 5
@@ -83,9 +83,9 @@ typedef enum{
 
 // Struct til videregående uddannelser
 typedef struct educations{
-    char name[MAX_DATA];
+    char name[NAME_LENGTH];
     double min_grade[MAX_CITY];
-    char link[MAX_DATA];   
+    char link[MAX_LINK_LENGTH];   
 } educations;
 
 // Struct til elevprofiler

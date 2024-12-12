@@ -1,10 +1,10 @@
 /* P1 Gr 8*/
 #include "../include/header.h"
+#include "../include/toolbox.h"
 #include "../include/input.h"
 #include "../include/output.h"
 #include "../include/knn.h"
 #include "../include/struct.h"
-#include "../include/toolbox.h"
 
 //Main funktion der starter programmet
 int main(void){
@@ -72,26 +72,19 @@ void welcomeMessage(int *operation){
 
 //Tager imod og tjekker om gyldigt input i startsekvensen af programmet.
 int checkInputMain(void){
-    char input[5];
+    char input[MAX_USER_INPUT_LENGTH + 1];
     
      while(1){ 
-            scanf(" %4s", input);
-            // Konverterer input til store bogstaver for at undgaa problemer med casing-forskelle under validation.
-            toUpperCase(input);
+            //Bruger getInputString fra toolbox.c til at validere inputtet
+            if(getInputString(input) == true){
             // Tjekker at input enten er A eller Q ved brug af strcmp() funktionen fra string.h biblioteket.
-            if (strcmp(input, "A") == 0 || strcmp(input, "Q") == 0){
-                switch(input[0]){
-                    case 'A': 
-                        return 1;
-                    case 'Q': 
-                        return -1;
-                    default:
-                        printf("Fejl input main");
-                        exit(EXIT_FAILURE);
-                }
-            } else{
-                printf(RED BOLD"Invalid Input!\n" SET_TEXT_DEFAULT);
-            }  
+                if (strcmp(input, "A") == 0)
+                    return 1;
+                else if(strcmp(input, "Q") == 0)
+                    return -1;
+                else
+                    printf(RED BOLD"Invalid Input!\n" SET_TEXT_DEFAULT);
+            }
             clearBuffer(); // Rydder inputbufferen for at forhindre ugyldige inputs i at paavirke efterfoelgende input.
     }
     return 0;

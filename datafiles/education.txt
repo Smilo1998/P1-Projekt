@@ -23,7 +23,7 @@ Jura
 https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/samfundsvidenskabeligebacheloruddannelser/forvaltningmv/jura
 
 Medicin
-10.6 10.1 10.4 9.9 0 0 0 0 0 0 
+10.6 10.1 10.4 9.9 0 0 0 0 0 0
 https://www.ug.dk/uddannelser/bachelorogkandidatuddannelser/bacheloruddannelser/sundhedsvidenskabeligebacheloruddannelser/medicin
 
 Farmaci

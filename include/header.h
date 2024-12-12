@@ -100,6 +100,7 @@ typedef struct student_profile{
 
 // Prototyper til testing
 CuSuite *test_manhattan_GetSuite();
+CuSuite *test_getEducations_GetSuite();
 
 // Prototyper til funktioner fra main.c
 int main(void);

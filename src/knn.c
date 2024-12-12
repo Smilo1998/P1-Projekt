@@ -9,7 +9,7 @@ void kNN(student_profile user, student_profile profiles[], student_profile neigh
 
     // Omdanner user student profile til et array for at klargoere til KNN
     double *processed_user = preprocessStudentStructs(user);
-  
+        
     // Normaliserer værdierne i arrayet til mellem 0 og 1 og definerer en vægtfordeling
     normalizeAndWeightDistribute(processed_user, ARRAY_SIZE);
     

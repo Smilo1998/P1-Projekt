@@ -15,6 +15,7 @@ void RunAllTests(void){
 
     // Adding test suites
     CuSuiteAddSuite(suite, (CuSuite *)test_manhattan_GetSuite());
+    CuSuiteAddSuite(suite, (CuSuite*)test_getEducations_GetSuite());
     
     CuSuiteRun(suite);
     CuSuiteSummary(suite, output);

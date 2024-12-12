@@ -11,17 +11,19 @@
 #include "../testing/CuTest.h"
 
 // Symbolske konstanter 
-#define NAME_LENGTH 30
+#define NAME_LENGTH 60
 #define SUBJECT_NAME 40
-#define MAX_DATA 250
-#define NUM_OF_STUDENTS 21
+#define MAX_LINK_LENGTH 250
+#define NUM_OF_STUDENTS 22
 #define NUM_OF_SUBJECTS 10
 #define NUM_OF_STATEMENTS 5
 #define NUM_OF_CATEGORIES 6
 #define MAX_PROCESSED_DATA 27
 #define MAX_CITY 10
-#define MAX_EDUCATIONS 21
+#define MAX_EDUCATIONS 22
 #define AMOUNT_OF_NEIGHBOURS 3
+#define ARRAY_SIZE (2 * NUM_OF_SUBJECTS + NUM_OF_STATEMENTS + 2) // Størrelsen på det array som bliver behandling i manhattanDistance
+
 
 #define DECIMAL_INPUT 1
 #define MAX_USER_INPUT_LENGTH 25
@@ -85,9 +87,9 @@ typedef enum{
 
 // Struct til videregående uddannelser
 typedef struct educations{
-    char name[MAX_DATA];
+    char name[NAME_LENGTH];
     double min_grade[MAX_CITY];
-    char link[MAX_DATA];   
+    char link[MAX_LINK_LENGTH];   
 } educations;
 
 // Struct til elevprofiler
@@ -102,6 +104,7 @@ typedef struct student_profile{
 
 // Prototyper til testing
 CuSuite *test_manhattan_GetSuite();
+CuSuite *test_getEducations_GetSuite();
 
 // Prototyper til funktioner fra main.c
 int main(void);

@@ -8,8 +8,7 @@
 
 //Main funktion der starter programmet
 int main(void){
-    // Saetter terminal-vinduets navn til titlen paa programmet med en ANSI-Sekvens
-    printf("\033]0;Education Recommendation App\007");
+    
 
     runProgram();
    
@@ -18,11 +17,14 @@ int main(void){
 
 //Funktion der kører den overordnede udførelses sekvens
 void runProgram(void){
+    // Saetter terminal-vinduets navn til titlen paa programmet med en ANSI-Sekvens
+    printf("\033]0;Education Recommendation App\007");
+
     int operation = 0;
-    // ærkler profiles, education_choice og neighbours arrays til videre brug i programmet;
+    // Erklærer student_profiles, education_choice og neighbours arrays til videre brug i programmet. Disse er af datatypen struct arrays.
     student_profile profiles [NUM_OF_STUDENTS];
     educations education_choice[MAX_EDUCATIONS];
-    student_profile neighbours[3];
+    student_profile neighbours[AMOUNT_OF_NEIGHBOURS];
 
     //Kalder funktionerne i struct.c for at scanne data ind i arrays.
     //Get educations kaldes først da education_choice arrayet bruges i getStudents.

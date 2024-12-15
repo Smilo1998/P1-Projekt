@@ -1,3 +1,6 @@
+#include "CuTest.h"
+#include "../include/header.h"
+
 // Testing af Manhattan Distance
 double manhattanDistance(const double array_user[], const double array_profile[]){
     int i; 

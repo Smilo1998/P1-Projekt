@@ -225,7 +225,6 @@ void categoryRating(student_profile *user_profile){
             int category_validation = categoryDecider(user_category);
             if (category_validation != -1){
                 user_profile->category = category_validation;
-                printf("%d",category_validation);
                 valid_category_input = 1;
             } else {
                 printf(RED BOLD"Ugyldig kategori, proev igen!\n"SET_TEXT_DEFAULT);

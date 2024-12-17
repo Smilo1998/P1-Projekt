@@ -25,7 +25,6 @@ void kNN(student_profile user, student_profile profiles[], student_profile neigh
             // Distancen mellem elev og bruger udregnes via manhattanDistance
             distance = manhattanDistance(processed_user, processed_data_profile);
             // Hvis distancen mellem user og profile er mindre end nuværende minimum bliver distance det nye minimum og index gemmes
-            printf("DISTANCE TIL PERSON %lf: %lf\n", profiles[i].gpa, distance);
             if (distance < minimum[0]){
                 //Ryk profilens placering ned i neighbours arrayet. 
                 minimum[2] = minimum[1];

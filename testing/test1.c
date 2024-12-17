@@ -25,7 +25,7 @@ void getEducations(educations education_choice[]){
 }
 
 void test_getEducationsOpen(CuTest *tc){
-  FILE *test_file = fopen("testeducations.txt", "r");
+  FILE *test_file = fopen("../datafiles/education.txt", "r");
   CuAssertPtrNotNull(tc, test_file);
   fclose(test_file);
 }

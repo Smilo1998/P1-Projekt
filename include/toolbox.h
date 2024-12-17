@@ -10,8 +10,6 @@ bool getInputInt(int* integer);
 bool getInputString(char* string);
 void clearBuffer();
 void toUpperCase (char str[]);
-void resetIntArray(char arrayToReset[]);
-int containsSpaces(char arrayToCheck[]);
 int extraInput();
 
 #endif

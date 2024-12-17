@@ -35,7 +35,7 @@ void runProgram(void){
     do{
         welcomeMessage(&operation);
             if(operation == -1){
-                printf("\nThank you for trying our program!\n\n");
+                printf("\nTak fordi du proevede vores program!\n\n");
                 break;
             }
         // Gemmer input fra bruger i user array
@@ -55,17 +55,17 @@ void welcomeMessage(int *operation){
     //Første besked når programmet starter. Introduktion
     if(*operation == 0){
         printf(BOLD"---------------------------------------------\n"SET_TEXT_DEFAULT);
-        printf(BOLD"Welcome to the Education Recommendation App!\n"SET_TEXT_DEFAULT);
-        printf("This app will recommend a list of educations based upon your answer to a series of questions.\n"SET_TEXT_DEFAULT);
-        printf(GREEN BOLD"To start the application press 'a'\n"SET_TEXT_DEFAULT);
-        printf(RED BOLD"To quit the application press 'q'\n"SET_TEXT_DEFAULT);
+        printf(BOLD"Velkommen til the Education Recommendation App!\n"SET_TEXT_DEFAULT);
+        printf("Dette program vil forslaa en liste af uddannelser, baseret paa dine svar til en raekke spoergsmaal.\n\n"SET_TEXT_DEFAULT);
+        printf(GREEN BOLD"For at begynde programmet tast 'a'.\n"SET_TEXT_DEFAULT);
+        printf(RED BOLD"For at lukke programmet igen tast 'q'.\n"SET_TEXT_DEFAULT);
         *operation = checkInputMain();
         return;
     }
     //Besked når programmet kører igen efter første iteration;
     printf(BOLD"---------------------------------------------\n"SET_TEXT_DEFAULT);
-    printf(GREEN BOLD"To start the application again press 'a'\n"SET_TEXT_DEFAULT);
-    printf(RED BOLD"To quit the application press 'q'\n"SET_TEXT_DEFAULT);
+    printf(GREEN BOLD"For at begynde programmet forfra tast 'a'\n"SET_TEXT_DEFAULT);
+    printf(RED BOLD"For at lukke programmet igen tast 'q'\n"SET_TEXT_DEFAULT);
     *operation = checkInputMain();
     return;
 }
@@ -83,7 +83,7 @@ int checkInputMain(void){
                 else if(strcmp(input, "Q") == 0)
                     return -1;
                 else
-                    printf(RED BOLD"Invalid Input!\n" SET_TEXT_DEFAULT);
+                    printf(RED BOLD"Ugyldigt input!\n" SET_TEXT_DEFAULT);
             }
             clearBuffer(); // Rydder inputbufferen for at forhindre ugyldige inputs i at paavirke efterfoelgende input.
     }

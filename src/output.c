@@ -5,15 +5,15 @@
 //Printer også byer hvor karakterkrav ikke overholdes.
 void printEducation(student_profile student, student_profile user){
     printf("---------------------------------------------");
-    printf(BOLD"\nRecommended education based on your inputs:\n"UNBOLD);
+    printf(BOLD"\nForslag til uddannelse baseret paa dine svar:\n"UNBOLD);
     printf("\n%s\n\n", student.education_choice.name);
-    printf(BOLD"Cities with this education:\n"UNBOLD);
+    printf(BOLD"Byer der tilbyder denne uddannelse:\n"UNBOLD);
 
     // Tjekker om uddannelse er tilgængelig i den valgte by og printer byen hvis dette er tilfældet
     checkCity(student, user);
     
     //Printer link til uddannelsen på www.ug.dk
-    printf("\nUse this link to read more:\n%s\n\n", student.education_choice.link);
+    printf("\nBrug linket for at laese mere:\n%s\n\n", student.education_choice.link);
 }
 
 void checkCity(student_profile student, student_profile user){
@@ -55,7 +55,7 @@ void checkCity(student_profile student, student_profile user){
                         printf("Fejl i switch output");
                         break;
                 }
-                printf(UNBOLD"Previous year kvote 1 grade requirement: ");
+                printf(UNBOLD"Sidste aars adgangskvotient for kvote 1: ");
                     if (user.gpa >= student.education_choice.min_grade[i]){
                         printf(GREEN);
                     } else if (user.gpa >= student.education_choice.min_grade[i] - 0.5) {

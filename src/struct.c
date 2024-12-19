@@ -38,7 +38,6 @@ void getStudents(student_profile profiles[], educations education_choice_array[]
         for(k = 0; k < MAX_EDUCATIONS; k++){
             if(strcmp(education, education_choice_array[k].name) == 0){
                 profiles[i].education_choice = education_choice_array[k];
-                printf("%s --- %s\n", education, education_choice_array[k].name);
                 break;
             }
         }

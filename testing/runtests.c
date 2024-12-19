@@ -1,6 +1,7 @@
 #include "../include/header.h"
 #include "CuTest.h"
 
+// For at teste skal c filerne kompileres. Dette goeres med kommandoen: gcc cutest.c testManhattan.c testScan.c runtests.c
 
 void RunAllTests(void);
 
